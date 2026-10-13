@@ -46,11 +46,13 @@ export class HeaderComponent implements OnInit {
 
   goToSection(sectionId: string): void {
     this.closeMobileMenu();
-    if (this.currentUrl.includes('/arquivos')) {
+    const url = this.router.url;
+    const isHome = url === '/' || url === '/home' || url.startsWith('/home#') || url.startsWith('/#');
+    if (!isHome) {
       this.router.navigate(['/home']).then(() => {
         setTimeout(() => {
           this.scrollToElement(sectionId);
-        }, 150);
+        }, 250);
       });
     } else {
       this.scrollToElement(sectionId);

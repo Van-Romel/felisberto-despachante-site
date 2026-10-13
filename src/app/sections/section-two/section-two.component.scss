@@ -5,16 +5,14 @@
 
 .selector-card {
   max-width: 980px;
+  width: 100%;
+  box-sizing: border-box;
   margin: 0 auto;
   background: #ffffff;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   border: 1px solid #e2e8f0;
-  padding: 40px;
-
-  @media (max-width: 640px) {
-    padding: 24px 16px;
-  }
+  padding: clamp(16px, 3.5vw, 40px);
 }
 
 .selector-heading {
@@ -197,11 +195,15 @@
 
 .parcelas-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 10px;
 
-  @media (max-width: 640px) {
-    grid-template-columns: repeat(2, 1fr);
+  @media (min-width: 580px) and (max-width: 860px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 861px) {
+    grid-template-columns: repeat(5, 1fr);
   }
 
   .parcela-item {

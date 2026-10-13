@@ -1,12 +1,14 @@
 .page-unidade {
   background: #f8fafc;
   min-height: 80vh;
+  overflow: hidden;
+  max-width: 100%;
 }
 
 .unidade-hero {
   background: linear-gradient(180deg, #070b14 0%, #0f172a 100%);
   color: #ffffff;
-  padding: 110px 0 60px 0;
+  padding: clamp(70px, 9vw, 110px) 0 clamp(40px, 5vw, 60px) 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 
   .breadcrumb {

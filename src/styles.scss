@@ -63,6 +63,10 @@ html {
   scroll-padding-top: 80px;
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  background-color: #070b14;
 }
 
 body {
@@ -70,9 +74,18 @@ body {
   background-color: var(--slate-50);
   color: var(--slate-900);
   line-height: 1.6;
-  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@supports not (overflow-x: clip) {
+  html, body {
+    overflow-x: hidden;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -101,12 +114,14 @@ img {
   display: block;
 }
 
-/* Container padrão */
+/* Container padrão Mobile-First */
 .container {
   width: 100%;
   max-width: 1240px;
-  margin: 0 auto;
-  padding: 0 24px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(16px, 3.5vw, 24px);
+  padding-right: clamp(16px, 3.5vw, 24px);
 }
 
 /* Badge de credibilidade */

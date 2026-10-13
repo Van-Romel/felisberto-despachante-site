@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { LinksService } from '../services/links.service';
 
 @Component({
@@ -13,7 +13,10 @@ import { LinksService } from '../services/links.service';
 export class FooterComponent {
   currentYear = new Date().getFullYear();
 
-  constructor(public linksService: LinksService) {}
+  constructor(
+    private router: Router,
+    public linksService: LinksService
+  ) {}
 
   openWhatsApp(): void {
     this.linksService.openWhatsApp();
@@ -24,9 +27,20 @@ export class FooterComponent {
   }
 
   scrollTo(id: string): void {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const url = this.router.url;
+    const isHome = url === '/' || url === '/home' || url.startsWith('/home#') || url.startsWith('/#');
+    if (!isHome) {
+      this.router.navigate(['/home']).then(() => {
+        setTimeout(() => {
+          const el = document.getElementById(id);
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 250);
+      });
+    } else {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
   }
 }

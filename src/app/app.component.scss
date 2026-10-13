@@ -1,3 +1,12 @@
 main {
   min-height: calc(100vh - 160px);
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+@supports not (overflow-x: clip) {
+  main {
+    overflow-x: hidden;
+  }
 }

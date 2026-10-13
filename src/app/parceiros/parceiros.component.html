@@ -1,0 +1,124 @@
+<div class="page-parceiros">
+  <!-- Hero da Página de Parceiros -->
+  <section class="parceiros-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a routerLink="/home">Início</a> &gt; <strong>Empresas Parceiras</strong>
+      </div>
+      <div class="badge-pill badge-red">REDE DE CONFIANÇA & INTEGRAÇÃO</div>
+      <h1 class="parceiros-title">Empresas e Parceiros Conveniados</h1>
+      <p class="parceiros-subtitle">
+        Para garantir rapidez, comodidade e zero retrabalho, o <strong>Felisberto Despachante</strong> atua de forma integrada com as principais empresas de vistoria automotiva, concessionárias e frotistas da Bahia.
+      </p>
+    </div>
+  </section>
+
+  <!-- Seção de Destaque: Oeste Vistorias -->
+  <section class="parceiros-content-section">
+    <div class="container">
+      <!-- Card Especial de Destaque Oeste Vistoria -->
+      <div class="featured-partner-card">
+        <div class="featured-badge-top">⭐ PARCEIRO ESTRATÉGICO OFICIAL</div>
+        <div class="featured-grid">
+          <div class="featured-info">
+            <div class="partner-meta">
+              <span class="partner-category-badge">ECV CREDENCIADA DETRAN-BA</span>
+              <span class="partner-city">📍 Barreiras / BA</span>
+            </div>
+            <h2 class="featured-name">Oeste Vistorias Automotivas</h2>
+            <p class="featured-desc">
+              Empresa Credenciada de Vistoria (ECV) oficial junto ao DETRAN-BA. Atua em parceria contínua com o Felisberto Despachante na realização de vistorias veiculares para transferência de propriedade, 2ª via de CRV/DUT, vistorias prévias e laudos de identificação veicular.
+            </p>
+
+            <div class="partner-address-box">
+              <span class="address-icon">📍</span>
+              <div>
+                <strong>Endereço:</strong>
+                <p>Rua Sergipe, nº 97 — Morada Nobre (ao lado do Corpo de Bombeiros), Barreiras - BA, CEP: 47810-053</p>
+              </div>
+            </div>
+
+            <!-- Banner Oficial do Sorteio da Moto Elétrica -->
+            <div class="promo-campaign-alert">
+              <div class="alert-icon">🎁</div>
+              <div class="alert-text">
+                <strong>Sorteio Oficial: Concorra a uma Moto Elétrica no Fim do Ano!</strong>
+                <p>Na realização da sua vistoria veicular com a Oeste Vistorias, você ganha um cupom oficial para concorrer ao sorteio de uma moto elétrica zero km.</p>
+                <a href="https://www.instagram.com/p/DeH0J9pgwBc/?hl=en" target="_blank" rel="noopener noreferrer" class="link-promo-insta">
+                  Ver anúncio oficial da promoção no Instagram ↗
+                </a>
+              </div>
+            </div>
+
+            <div class="partner-benefits-list">
+              <strong>Vantagens da Parceria Felisberto + Oeste Vistoria:</strong>
+              <ul>
+                <li>✓ Laudo de vistoria aceito com validação imediata nos sistemas do DETRAN-BA</li>
+                <li>✓ Conferência técnica de numeração de motor, chassi e originalidade do veículo</li>
+                <li>✓ Protocolamento do seu processo pelo despachante assim que o laudo é emitido</li>
+                <li>✓ Atendimento rápido e localização estratégica em Barreiras</li>
+              </ul>
+            </div>
+
+            <div class="partner-actions">
+              <button class="btn-maps" (click)="openMaps(oesteVistoriaMaps)">
+                📍 Ver Oeste Vistoria no Google Maps ↗
+              </button>
+              <button class="btn-whatsapp" (click)="falarSobreParceria('Oeste Vistorias')">
+                Agendar Laudo / Tirar Dúvidas
+              </button>
+            </div>
+          </div>
+
+          <div class="featured-badge-visual">
+            <div class="visual-seal">
+              <span class="seal-icon">🔍</span>
+              <span class="seal-title">Laudo 100% Homologado</span>
+              <span class="seal-sub">Segurança Jurídica na Transferência</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Outros Parceiros da Rede -->
+      <div class="other-partners-section">
+        <div class="section-heading">
+          <h2>Outras Frentes da Nossa Rede de Parcerias</h2>
+          <p>Conectamos motoristas, empresas e frotistas às melhores soluções do mercado automotivo.</p>
+        </div>
+
+        <div class="partners-grid">
+          <div class="partner-card" *ngFor="let p of parceiros.slice(1)">
+            <div class="card-icon-top">{{ p.icone }}</div>
+            <span class="card-category">{{ p.categoria }}</span>
+            <h3 class="card-title">{{ p.nome }}</h3>
+            <span class="card-location">📍 {{ p.cidade }}</span>
+            <p class="card-desc">{{ p.descricao }}</p>
+
+            <div class="card-benefits">
+              <ul>
+                <li *ngFor="let b of p.beneficios">{{ b }}</li>
+              </ul>
+            </div>
+
+            <button class="btn-card-action" (click)="falarSobreParceria(p.nome)">
+              Saber mais sobre este convênio →
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Banner de Seja um Parceiro -->
+      <div class="seja-parceiro-banner">
+        <div class="banner-content">
+          <span class="banner-badge">EXPANSÃO & CONVÊNIOS</span>
+          <h3>Sua empresa tem frota ou atua no setor automotivo?</h3>
+          <p>Seja um conveniado do Felisberto Despachante e ofereça assessoria documental sem filas para seus clientes e colaboradores com condições exclusivas.</p>
+        </div>
+        <button class="btn-primary" (click)="sejaParceiro()">
+          Cadastrar Minha Empresa como Parceira
+        </button>
+      </div>
+    </div>
+  </section>
+</div>
