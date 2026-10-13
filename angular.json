@@ -69,12 +69,15 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "buildTarget": "felisberto-despachante:build"
+          },
           "configurations": {
             "production": {
-              "browserTarget": "felisberto-despachante:build:production"
+              "buildTarget": "felisberto-despachante:build:production"
             },
             "development": {
-              "browserTarget": "felisberto-despachante:build:development"
+              "buildTarget": "felisberto-despachante:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +85,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "felisberto-despachante:build"
+            "buildTarget": "felisberto-despachante:build"
           }
         },
         "test": {
