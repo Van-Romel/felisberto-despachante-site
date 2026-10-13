@@ -3,41 +3,48 @@
   <div class="container hero-container">
     <div class="hero-content">
       <div class="badge-trust">
-        <span class="badge-icon">⭐</span>
+        <span class="badge-icon">🛡️</span>
         <span>DESDE 2007 • DESPACHANTE CREDENCIADO CRDD-BA</span>
       </div>
 
-      <div class="campaign-tagline">
-        <span class="tagline-prefix">Tem um abacaxi do seu veículo pra descascar?</span>
-        <h1 class="hero-title">
-          <span class="brand-name">FELISBERTO</span> <span class="highlight-resolve">Resolve!</span>
-        </h1>
+      <div class="hero-brand-block">
+        <h1 class="hero-main-title">FELISBERTO DESPACHANTE</h1>
+        <p class="hero-tagline">Serviços rápidos com os menores preços do mercado.</p>
       </div>
 
-      <p class="hero-subtitle">
-        <strong>Serviços rápidos com os menores preços do mercado.</strong> Transferência, 1º emplacamento, 2ª via de DUT, comunicado e intenção de venda (ATPV-e), licenciamento anual e parcelamento de débitos na Bahia.
+      <p class="hero-description">
+        Assessoria documental completa para você e sua empresa. Cuidamos de transferências, 1º emplacamento, 2ª via de documentos (DUT/ATPV-e), CNH e parcelamento de débitos veiculares com atendimento ágil e sem filas.
       </p>
 
-      <!-- Ações Hero com Seletor Rápido de Unidade -->
+      <!-- Botões de Atendimento por Unidade (Uniformes e Elegantes) -->
       <div class="hero-actions">
-        <div class="cta-buttons-group">
-          <button class="btn-hero-primary" (click)="openWhatsapp('barreiras')">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+        <div class="unit-selector-label">Fale diretamente com nossa equipe:</div>
+        <div class="unit-buttons-row">
+          <button class="btn-unit" (click)="openWhatsapp('barreiras')">
+            <span class="unit-pin">📍</span>
+            <div class="unit-text">
+              <span class="unit-name">Unidade Barreiras</span>
+              <span class="unit-num">(77) 99996-5588</span>
+            </div>
+            <svg class="whatsapp-mini-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
               <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.077-2.029-.475-1.624-.675-2.67-2.327-2.75-2.435-.081-.107-.655-.873-.655-1.664 0-.791.413-1.18.561-1.341.147-.161.32-.201.427-.201.107 0 .213.002.306.007.098.006.23-.037.36.275.133.32.454 1.108.494 1.189.04.081.067.176.013.283-.053.107-.08.174-.16.267-.08.093-.169.208-.242.279-.081.08-.166.167-.071.33.095.163.42 1.002 1.258 1.488.423.246.778.322.94.39.162.067.257.058.354-.053.097-.11.417-.487.528-.654.111-.167.222-.139.375-.083.153.056.97.458 1.137.541.167.083.278.125.319.194.041.07.041.403-.103.808z"/>
             </svg>
-            <span>Falar com Barreiras</span>
           </button>
 
-          <button class="btn-hero-primary btn-lem" (click)="openWhatsapp('lem')">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+          <button class="btn-unit" (click)="openWhatsapp('lem')">
+            <span class="unit-pin">📍</span>
+            <div class="unit-text">
+              <span class="unit-name">Unidade Luís Eduardo Magalhães</span>
+              <span class="unit-num">(77) 99800-9877</span>
+            </div>
+            <svg class="whatsapp-mini-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
               <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.077-2.029-.475-1.624-.675-2.67-2.327-2.75-2.435-.081-.107-.655-.873-.655-1.664 0-.791.413-1.18.561-1.341.147-.161.32-.201.427-.201.107 0 .213.002.306.007.098.006.23-.037.36.275.133.32.454 1.108.494 1.189.04.081.067.176.013.283-.053.107-.08.174-.16.267-.08.093-.169.208-.242.279-.081.08-.166.167-.071.33.095.163.42 1.002 1.258 1.488.423.246.778.322.94.39.162.067.257.058.354-.053.097-.11.417-.487.528-.654.111-.167.222-.139.375-.083.153.056.97.458 1.137.541.167.083.278.125.319.194.041.07.041.403-.103.808z"/>
             </svg>
-            <span>Falar com LEM</span>
           </button>
         </div>
 
-        <button class="btn-hero-secondary" (click)="scrollToLicenciamento()">
-          <span>Consultar Licenciamento</span>
+        <button class="btn-licenciamento-link" (click)="scrollToLicenciamento()">
+          <span>Consultar Calendário de Licenciamento</span>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <polyline points="6 9 12 15 18 9"></polyline>
           </svg>
@@ -48,7 +55,7 @@
       <div class="hero-stats">
         <div class="stat-item">
           <span class="stat-number">Desde 2007</span>
-          <span class="stat-label">Tradição & Experiência</span>
+          <span class="stat-label">Tradição & Segurança</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
@@ -57,8 +64,8 @@
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
-          <span class="stat-number">4.9 ★</span>
-          <span class="stat-label">Avaliação Google</span>
+          <span class="stat-number">Nota 5.0 ★</span>
+          <span class="stat-label">Excelência Comprovada</span>
         </div>
       </div>
     </div>
@@ -73,12 +80,12 @@
         >
         <!-- Card Flutuante com Selo Desde 2007 -->
         <div class="floating-badge-card">
-          <div class="badge-seal-gold">
+          <div class="badge-seal-red">
             <span>2007</span>
           </div>
           <div>
             <div class="badge-card-title">Felisberto Despachante</div>
-            <div class="badge-card-sub">Menores Preços e Máxima Rapidez</div>
+            <div class="badge-card-sub">Credenciado CRDD-BA • Tradição e Agilidade</div>
           </div>
         </div>
       </div>

@@ -34,7 +34,7 @@ export class SectionServicosComponent {
       id: 'emplacamento',
       category: 'veiculos',
       title: 'Primeiro Emplacamento',
-      description: 'Regularização e emplacamento Mercosul de veículos zero km com rapidez direto na concessionária.',
+      description: 'Regularização e emplacamento Mercosul de veículos zero km com agilidade direto para você ou concessionária.',
       icon: '✨',
       highlight: true
     },
@@ -48,15 +48,15 @@ export class SectionServicosComponent {
     {
       id: 'crv',
       category: 'veiculos',
-      title: 'Segunda Via de CRV / ATPV-e',
-      description: 'Recuperação de documento de compra e venda em caso de perda, rasura ou extravio.',
+      title: '2ª Via de DUT / ATPV-e',
+      description: 'Recuperação do documento de compra e venda em caso de perda, rasura ou extravio.',
       icon: '📑'
     },
     {
       id: 'ipva-vistoria',
       category: 'licenciamento',
-      title: 'Parcelamento de IPVA & Débitos',
-      description: 'Levantamento de multas, IPVA atrasado, taxa de licenciamento e facilidade de parcelamento.',
+      title: 'Parcelamento de Débitos & IPVA',
+      description: 'Levantamento de multas, débitos pendentes, taxa de licenciamento e facilidade de parcelamento.',
       icon: '💳',
       highlight: true
     },
@@ -64,14 +64,21 @@ export class SectionServicosComponent {
       id: 'comunicado',
       category: 'veiculos',
       title: 'Comunicado de Venda',
-      description: 'Proteção jurídica imediata para o vendedor, evitando multas e pontuações futuras na CNH.',
+      description: 'Proteção jurídica para o vendedor, garantindo que infrações futuras não sejam vinculadas ao seu nome.',
       icon: '🛡️'
+    },
+    {
+      id: 'placa',
+      category: 'veiculos',
+      title: '2ª Via de Placa Mercosul',
+      description: 'Substituição de placas danificadas, furtadas ou atualização para o padrão Mercosul.',
+      icon: '🚙'
     },
     {
       id: 'cnh',
       category: 'cnh',
       title: 'CNH & Regularização',
-      description: 'Renovação de habilitação, mudança de categoria, defesa de pontos e certidões do condutor.',
+      description: 'Renovação de habilitação, mudança de categoria, recursos e certidões do condutor.',
       icon: '🪪'
     },
     {
@@ -91,16 +98,9 @@ export class SectionServicosComponent {
     {
       id: 'licencas',
       category: 'licenciamento',
-      title: 'Licenças Estaduais Especiais',
+      title: 'Licenças Estaduais',
       description: 'Autorizações especiais de trânsito e licenças junto aos órgãos estaduais competentes.',
       icon: '⚖️'
-    },
-    {
-      id: 'iptu',
-      category: 'cnh',
-      title: 'IPTU & Certidões Imobiliárias',
-      description: 'Assessoria em certidões municipais, ITU/IPTU e regularizações burocráticas complementares.',
-      icon: '🏛️'
     },
     {
       id: 'baixa',
@@ -111,7 +111,7 @@ export class SectionServicosComponent {
     }
   ];
 
-  constructor(private linksService: LinksService) {}
+  constructor(public linksService: LinksService) {}
 
   get filteredServicos(): ServicoItem[] {
     if (this.activeCategory === 'all') {
@@ -125,6 +125,6 @@ export class SectionServicosComponent {
   }
 
   solicitarServico(servico: ServicoItem): void {
-    this.linksService.openWhatsApp(undefined, servico.title);
+    this.linksService.openWhatsApp('geral', undefined, servico.title);
   }
 }

@@ -17,27 +17,38 @@ export interface DepoimentoItem {
   styleUrls: ['./section-four.component.scss']
 })
 export class SectionFourComponent {
+  googleReviewUrl = 'https://share.google/ndfODTdZOcYiiFGpX';
+  instagramUrl = 'https://www.instagram.com/felisberto_despachante/';
+
   depoimentos: DepoimentoItem[] = [
     {
-      autor: 'Lucas Medeiros',
-      local: 'Salvador / BA',
-      texto: 'Fiz a transferência de um carro seminovo com o Igor e foi a melhor experiência que já tive. Em poucos dias o documento digital já estava liberado no aplicativo. Atendimento ágil e atencioso!',
+      autor: 'Lucas M.',
+      local: 'Cliente em Barreiras / BA',
+      texto: 'Atendimento excelente! Transferência do meu veículo resolvida com muita agilidade e sem nenhuma burocracia.',
       avaliacao: 5,
-      servico: 'Transferência de Propriedade'
+      servico: 'Transferência de Veículo'
     },
     {
-      autor: 'Carla Silveira',
-      local: 'Vitória da Conquista / BA',
-      texto: 'Precisava parcelar o IPVA e resolver um gravame antigo com urgência. O Felisberto Despachante resolveu tudo pelo WhatsApp com total clareza. Recomendo com certeza!',
+      autor: 'Carla S.',
+      local: 'Cliente em Luís Eduardo Magalhães / BA',
+      texto: 'Super recomendo o Felisberto Despachante. Resolveram o parcelamento do IPVA e a segunda via do documento muito rápido.',
       avaliacao: 5,
-      servico: 'Parcelamento de Débitos & IPVA'
+      servico: 'Licenciamento & Débitos'
     },
     {
-      autor: 'Marcos Almeida',
-      local: 'Empresário / Frotista',
-      texto: 'Cuidam dos veículos da nossa transportadora há anos. Nunca tivemos uma única dor de cabeça com prazos de renovação ou emplacamentos. Confiança total!',
+      autor: 'Marcos A.',
+      local: 'Frotista / Região Oeste',
+      texto: 'Sempre confio os emplacamentos e processos da frota ao Felisberto. Pontualidade, seriedade e honestidade nas taxas.',
       avaliacao: 5,
-      servico: 'Emplacamento & Licenciamento'
+      servico: '1º Emplacamento & Frotas'
     }
   ];
+
+  openGoogleReviews(): void {
+    window.open(this.googleReviewUrl, '_blank', 'noopener,noreferrer');
+  }
+
+  openInstagram(): void {
+    window.open(this.instagramUrl, '_blank', 'noopener,noreferrer');
+  }
 }

@@ -1,12 +1,12 @@
 <section class="section-depoimentos">
   <div class="container">
     <div class="section-header-dark">
-      <div class="badge-pill badge-gold">SATISFAÇÃO COMPROVADA</div>
-      <h2>O que Nossos Clientes Dizem</h2>
-      <p>A confiança de quem já regularizou seu veículo conosco sem complicações.</p>
+      <div class="badge-pill badge-red">CONFIANÇA COMPROVADA</div>
+      <h2>O que dizem os nossos clientes</h2>
+      <p>A satisfação de quem conta com o Felisberto Despachante em Barreiras e Luís Eduardo Magalhães.</p>
     </div>
 
-    <!-- Card Google Reviews Principal -->
+    <!-- Banner Oficial do Google Reviews -->
     <div class="google-rating-banner">
       <div class="google-brand">
         <svg viewBox="0 0 24 24" width="28" height="28">
@@ -15,13 +15,21 @@
           <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
           <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
         </svg>
-        <span>Avaliações Google</span>
+        <div class="google-brand-text">
+          <strong>Avaliações no Google</strong>
+          <span>Perfil Oficial da Empresa</span>
+        </div>
       </div>
+
       <div class="rating-stars-wrap">
-        <span class="rating-number">4.9</span>
+        <span class="rating-number">5.0</span>
         <div class="stars-gold">★★★★★</div>
-        <span class="rating-count">Baseado em clientes satisfeitos</span>
+        <span class="rating-count">Excelência regional</span>
       </div>
+
+      <button class="btn-view-google" (click)="openGoogleReviews()">
+        Ver no Google Maps ↗
+      </button>
     </div>
 
     <!-- Grid de Depoimentos -->
@@ -38,6 +46,14 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Chamada Instagram -->
+    <div class="social-proof-footer">
+      <span>Acompanhe novidades, prazos e avisos de trânsito em nosso Instagram:</span>
+      <button class="btn-insta-link" (click)="openInstagram()">
+        📷 &#64;felisberto_despachante
+      </button>
     </div>
   </div>
 </section>
