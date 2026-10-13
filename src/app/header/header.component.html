@@ -3,11 +3,13 @@
   <div class="container top-units-container">
     <div class="units-left">
       <span class="unit-item">
-        📍 <strong>Barreiras:</strong> <a (click)="openWhatsApp('barreiras')">(77) 99996-5588</a>
+        📍 <a routerLink="/unidades/barreiras" class="unit-city-link">Barreiras:</a> 
+        <a (click)="openWhatsApp('barreiras')" class="unit-phone-link">(77) 99996-5588</a>
       </span>
       <span class="unit-divider">|</span>
       <span class="unit-item">
-        📍 <strong>LEM:</strong> <a (click)="openWhatsApp('lem')">(77) 99800-9877</a>
+        📍 <a routerLink="/unidades/lem" class="unit-city-link">LEM:</a> 
+        <a (click)="openWhatsApp('lem')" class="unit-phone-link">(77) 99800-9877</a>
       </span>
     </div>
     <div class="units-right">
@@ -44,6 +46,13 @@
         <li>
           <a routerLink="/arquivos" routerLinkActive="active" class="nav-item">Documentos & Links</a>
         </li>
+        <li class="nav-dropdown-wrapper">
+          <span class="nav-item">Unidades ▾</span>
+          <div class="nav-dropdown-menu">
+            <a routerLink="/unidades/barreiras" class="dropdown-item">📍 Barreiras / BA</a>
+            <a routerLink="/unidades/lem" class="dropdown-item">📍 Luís Eduardo Magalhães</a>
+          </div>
+        </li>
       </ul>
     </nav>
 
@@ -53,7 +62,7 @@
         <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
           <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.077-2.029-.475-1.624-.675-2.67-2.327-2.75-2.435-.081-.107-.655-.873-.655-1.664 0-.791.413-1.18.561-1.341.147-.161.32-.201.427-.201.107 0 .213.002.306.007.098.006.23-.037.36.275.133.32.454 1.108.494 1.189.04.081.067.176.013.283-.053.107-.08.174-.16.267-.08.093-.169.208-.242.279-.081.08-.166.167-.071.33.095.163.42 1.002 1.258 1.488.423.246.778.322.94.39.162.067.257.058.354-.053.097-.11.417-.487.528-.654.111-.167.222-.139.375-.083.153.056.97.458 1.137.541.167.083.278.125.319.194.041.07.041.403-.103.808z"/>
         </svg>
-        <span class="btn-text">Falar no WhatsApp</span>
+        <span class="btn-text">Atendimento WhatsApp</span>
       </button>
 
       <!-- Botão Hambúrguer Mobile -->
@@ -69,8 +78,12 @@
   <div class="mobile-drawer" [class.open]="isMobileMenuOpen">
     <div class="mobile-drawer-content">
       <div class="mobile-units-block">
-        <div>📍 <strong>Barreiras:</strong> (77) 99996-5588</div>
-        <div>📍 <strong>LEM:</strong> (77) 99800-9877</div>
+        <a routerLink="/unidades/barreiras" (click)="closeMobileMenu()" class="mobile-unit-link">
+          📍 <strong>Escritório Barreiras:</strong> Ver endereço e rotas ↗
+        </a>
+        <a routerLink="/unidades/lem" (click)="closeMobileMenu()" class="mobile-unit-link">
+          📍 <strong>Escritório LEM:</strong> Ver endereço e rotas ↗
+        </a>
       </div>
       <ul class="mobile-nav-links">
         <li>
