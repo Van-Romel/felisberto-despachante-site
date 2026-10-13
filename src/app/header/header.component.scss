@@ -22,13 +22,20 @@
   .units-left {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
 
     .unit-item {
       color: #e2e8f0;
       display: inline-flex;
       align-items: center;
-      gap: 4px;
+      gap: 5px;
+
+      .unit-city-title {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        white-space: nowrap;
+      }
 
       .unit-city-link {
         color: #ffffff;
@@ -41,12 +48,37 @@
         color: #ff9900;
         font-weight: 600;
         cursor: pointer;
+        white-space: nowrap;
         &:hover { text-decoration: underline; }
+      }
+
+      @media (max-width: 580px) {
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+        text-align: center;
+        line-height: 1.25;
+
+        .unit-city-title {
+          font-size: 0.72rem;
+          font-weight: 700;
+        }
+
+        .unit-phone-link {
+          font-size: 0.76rem;
+        }
       }
     }
 
     .unit-divider {
-      color: rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.25);
+      align-self: center;
+    }
+
+    @media (max-width: 580px) {
+      gap: 14px;
+      width: 100%;
+      justify-content: center;
     }
   }
 
@@ -211,35 +243,6 @@
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 16px;
-}
-
-.btn-whatsapp-header {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--brand-red, #c51e26);
-  color: #ffffff;
-  padding: 10px 20px;
-  border-radius: 9999px;
-  font-size: 0.88rem;
-  font-weight: 700;
-  box-shadow: 0 4px 12px rgba(197, 30, 38, 0.35);
-  transition: all 0.2s ease;
-
-  &:hover {
-    background: #a8161d;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(197, 30, 38, 0.5);
-  }
-
-  @media (max-width: 640px) {
-    .btn-text {
-      display: none;
-    }
-    padding: 10px;
-    border-radius: 50%;
-  }
 }
 
 .mobile-toggle {

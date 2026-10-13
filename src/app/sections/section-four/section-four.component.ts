@@ -17,7 +17,8 @@ export interface DepoimentoItem {
   styleUrls: ['./section-four.component.scss']
 })
 export class SectionFourComponent {
-  googleReviewUrl = 'https://share.google/ndfODTdZOcYiiFGpX';
+  googleBarreirasUrl = 'https://maps.app.goo.gl/PBFUH54SkaZUMf7bA';
+  googleLEMUrl = 'https://maps.app.goo.gl/ohhGB2GUCxMAGtXX7';
   instagramUrl = 'https://www.instagram.com/felisberto_despachante/';
 
   depoimentos: DepoimentoItem[] = [
@@ -44,8 +45,12 @@ export class SectionFourComponent {
     }
   ];
 
-  openGoogleReviews(): void {
-    window.open(this.googleReviewUrl, '_blank', 'noopener,noreferrer');
+  openGoogleBarreiras(): void {
+    window.open(this.googleBarreirasUrl, '_blank', 'noopener,noreferrer');
+  }
+
+  openGoogleLEM(): void {
+    window.open(this.googleLEMUrl, '_blank', 'noopener,noreferrer');
   }
 
   openInstagram(): void {
