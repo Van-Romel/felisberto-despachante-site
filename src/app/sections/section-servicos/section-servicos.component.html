@@ -1,25 +1,65 @@
-<div class="bg-branco section-servicos" id="nossos-servicos">
-  <h3>NOSSOS SERVIÇOS</h3>
-  <div class="servicos-table">
-    <div class="servicos-col">
-      <i><img ngSrc="../../../assets/servicos/Basket.svg" alt="printer" height="52" width="52"><span>Comunicado de Venda</span></i>
-      <i><img ngSrc="../../../assets/servicos/Scales.svg" alt="car-simple" height="52" width="52"><span>Licenças Estaduais</span></i>
-      <i><img ngSrc="../../../assets/servicos/BookOpen.svg" alt="printer" height="52" width="52"><span>Emissão de CRLV</span></i>
-      <i><img ngSrc="../../../assets/servicos/House.svg" alt="car-simple" height="52" width="52"><span>IPTU</span></i>
-      <i><img ngSrc="../../../assets/servicos/AlignBottom.svg" alt="printer" height="52" width="52"><span>ITU</span></i>
+<section class="section-servicos" id="nossos-servicos">
+  <div class="container">
+    <div class="section-header">
+      <div class="badge-pill">SOLUÇÕES COMPLETAS</div>
+      <h2>Nossos Serviços Especializados</h2>
+      <p>Assessoria completa e homologada para você e sua empresa. Clique no serviço desejado para falar diretamente com nosso despachante.</p>
     </div>
-    <div class="servicos-col">
-      <i><img ngSrc="../../../assets/servicos/printer.svg" alt="printer" height="52" width="52"><span>Impressão de Licenciamento</span></i>
-      <i><img ngSrc="../../../assets/servicos/car-simple.svg" alt="car-simple" height="52" width="52"><span>Primeiro Emplacamento</span></i>
-      <i><img ngSrc="../../../assets/servicos/FileDoc.svg" alt="printer" height="52" width="52"><span>Segunda via de CRV</span></i>
-      <i><img ngSrc="../../../assets/servicos/Files.svg" alt="car-simple" height="52" width="52"><span>IPVA e Vistoria</span></i>
-      <i><img ngSrc="../../../assets/servicos/ArrowsLeftRight.svg" alt="printer" height="52" width="52"><span>Transferência</span></i>
+
+    <!-- Filtros de Categoria -->
+    <div class="category-filters">
+      <button
+        class="filter-btn"
+        [class.active]="activeCategory === 'all'"
+        (click)="setCategory('all')"
+      >
+        Todos os Serviços
+      </button>
+      <button
+        class="filter-btn"
+        [class.active]="activeCategory === 'veiculos'"
+        (click)="setCategory('veiculos')"
+      >
+        🚗 Veículos & Transferência
+      </button>
+      <button
+        class="filter-btn"
+        [class.active]="activeCategory === 'licenciamento'"
+        (click)="setCategory('licenciamento')"
+      >
+        📑 Licenciamento & Tributos
+      </button>
+      <button
+        class="filter-btn"
+        [class.active]="activeCategory === 'cnh'"
+        (click)="setCategory('cnh')"
+      >
+        🪪 CNH & Certidões
+      </button>
     </div>
-    <div class="servicos-col">
-      <i><img ngSrc="../../../assets/servicos/CarProfile.svg" alt="printer" height="52" width="52"><span>Habilitação</span></i>
-      <i><img ngSrc="../../../assets/servicos/MagnifyingGlass.svg" alt="car-simple" height="52" width="52"><span>Procuração</span></i>
-      <i><img ngSrc="../../../assets/servicos/Barcode.svg" alt="car-simple" height="52" width="52"><span>ANTT</span></i>
-      <i><img ngSrc="../../../assets/servicos/IdentificationCard.svg" alt="printer" height="52" width="52"><span>Escritura</span></i>
+
+    <!-- Grid de Serviços Modernos -->
+    <div class="servicos-grid">
+      <div
+        class="service-card"
+        *ngFor="let s of filteredServicos"
+        [class.featured]="s.highlight"
+      >
+        <div class="service-card-top">
+          <span class="service-icon">{{ s.icon }}</span>
+          <span class="badge-featured" *ngIf="s.highlight">Mais Solicitado</span>
+        </div>
+
+        <h3 class="service-title">{{ s.title }}</h3>
+        <p class="service-description">{{ s.description }}</p>
+
+        <button class="btn-service-action" (click)="solicitarServico(s)">
+          <span>Solicitar no WhatsApp</span>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.077-2.029-.475-1.624-.675-2.67-2.327-2.75-2.435-.081-.107-.655-.873-.655-1.664 0-.791.413-1.18.561-1.341.147-.161.32-.201.427-.201.107 0 .213.002.306.007.098.006.23-.037.36.275.133.32.454 1.108.494 1.189.04.081.067.176.013.283-.053.107-.08.174-.16.267-.08.093-.169.208-.242.279-.081.08-.166.167-.071.33.095.163.42 1.002 1.258 1.488.423.246.778.322.94.39.162.067.257.058.354-.053.097-.11.417-.487.528-.654.111-.167.222-.139.375-.083.153.056.97.458 1.137.541.167.083.278.125.319.194.041.07.041.403-.103.808z"/>
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
-</div>
+</section>

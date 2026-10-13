@@ -1,8 +1,93 @@
-<footer class="bg-preto">
-  <div class="media">
-<!--    <img ngSrc="../../../assets/etc/FacebookLogo-bw.svg" alt="printer" height="51" width="51">-->
-    <img (click)="openExternalLink('instagram')" ngSrc="../../../assets/etc/InstagramLogo-bw.svg" alt="printer" height="51" width="51">
-    <img (click)="openExternalLink('whatsapp')" ngSrc="../../../assets/etc/WhatsappLogo-bw.svg" alt="printer" height="51" width="51">
+<footer class="footer-main">
+  <div class="container">
+    <div class="footer-top-grid">
+      <!-- Coluna 1: Marca & Sobre -->
+      <div class="footer-col brand-col">
+        <div class="footer-logo">
+          <img src="assets/F-logo-simples.svg" alt="Felisberto Despachante" width="44" height="44">
+          <div>
+            <span class="logo-name">FELISBERTO</span>
+            <span class="logo-sub">DESPACHANTE</span>
+          </div>
+        </div>
+        <p class="brand-slogan-footer">
+          "Serviços rápidos com os menores preços do mercado."
+        </p>
+        <p class="brand-bio">
+          Desde 2007 transformando burocracias veiculares em tranquilidade, segurança jurídica e comodidade na Bahia.
+        </p>
+        <div class="badges-row">
+          <span class="badge-tag gold">⭐ Desde 2007</span>
+          <span class="badge-tag">🛡️ Credenciado CRDD-BA</span>
+        </div>
+      </div>
+
+      <!-- Coluna 2: Navegação Rápida -->
+      <div class="footer-col">
+        <h4 class="col-title">Navegação</h4>
+        <ul class="footer-links">
+          <li><a (click)="scrollTo('licenciamento')">Calendário de Licenciamento</a></li>
+          <li><a (click)="scrollTo('nossos-servicos')">Nossos Serviços</a></li>
+          <li><a (click)="scrollTo('sobre-nos')">Sobre o Felisberto</a></li>
+          <li><a routerLink="/arquivos">Central de Documentos & Links</a></li>
+        </ul>
+      </div>
+
+      <!-- Coluna 3: Serviços Principais -->
+      <div class="footer-col">
+        <h4 class="col-title">Serviços Mais Buscados</h4>
+        <ul class="footer-links">
+          <li><a (click)="scrollTo('nossos-servicos')">Transferência de Veículo</a></li>
+          <li><a (click)="scrollTo('nossos-servicos')">1º Emplacamento Mercosul</a></li>
+          <li><a (click)="scrollTo('nossos-servicos')">2ª Via de DUT / CRV</a></li>
+          <li><a (click)="scrollTo('nossos-servicos')">2ª Via de Placa</a></li>
+          <li><a (click)="scrollTo('nossos-servicos')">Comunicado de Venda</a></li>
+          <li><a (click)="scrollTo('nossos-servicos')">Intenção de Venda (ATPV-e)</a></li>
+          <li><a (click)="scrollTo('nossos-servicos')">Parcelamento de Débitos e IPVA</a></li>
+        </ul>
+      </div>
+
+      <!-- Coluna 4: Unidades & Atendimento -->
+      <div class="footer-col contact-col">
+        <h4 class="col-title">Nossas Unidades</h4>
+        <div class="unit-contact-box">
+          <div class="unit-box">
+            <span class="unit-title">📍 Unidade Barreiras / BA</span>
+            <a (click)="linksService.openWhatsApp('barreiras')" class="unit-phone">
+              (77) 99996-5588
+            </a>
+          </div>
+
+          <div class="unit-box">
+            <span class="unit-title">📍 Unidade Luís Eduardo Magalhães (LEM) / BA</span>
+            <a (click)="linksService.openWhatsApp('lem')" class="unit-phone">
+              (77) 99800-9877
+            </a>
+          </div>
+
+          <div class="unit-box">
+            <span class="unit-title">📱 Atendimento Geral / Consultoria</span>
+            <a (click)="linksService.openWhatsApp('geral')" class="unit-phone">
+              (77) 99937-8918
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-social-wrap">
+          <a [href]="linksService.instagramUrl" target="_blank" rel="noopener noreferrer" class="insta-badge-link">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+            <span>&#64;felisberto_despachante</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Barra Inferior -->
+    <div class="footer-bottom">
+      <span>&copy; {{ currentYear }} Felisberto Despachante • Todos os direitos reservados.</span>
+      <span class="footer-legal">Barreiras & Luís Eduardo Magalhães • Bahia.</span>
+    </div>
   </div>
-  <span>2023 • Felisberto Despachante • Todos os direitos reservados</span>
 </footer>

@@ -1,51 +1,88 @@
-<div class="secondary-div">
-  <h2>ARQUIVOS</h2>
+<div class="page-arquivos">
+  <div class="container">
+    <!-- Header da Página -->
+    <div class="page-header">
+      <div class="badge-pill">CENTRAL DOCUMENTAL</div>
+      <h1>Modelos de Documentos & Links Oficiais</h1>
+      <p>Baixe os modelos oficiais para abertura de processos ou acesse os portais governamentais de trânsito e tributos.</p>
+    </div>
 
-  <div class="container documentos">
-    <h3>Documentos</h3><hr>
-    <ul>
-      <li><div><span>Procuração</span>
-        <div class="download-options">
-            <a [routerLink]="'/documentos/Procuracao_CRDDBA_PF.pdf'" target="_blank">
-              <span>.pdf</span><a class="download-icon"></a>
+    <!-- Bloco de Documentos para Download -->
+    <section class="section-docs">
+      <div class="sub-header">
+        <h2>📄 Documentos & Formulários para Download</h2>
+        <span>Disponíveis nos formatos PDF e DOCX (Word) editável</span>
+      </div>
+
+      <div class="docs-grid">
+        <div class="doc-card" *ngFor="let doc of documentos">
+          <div class="doc-card-top">
+            <span class="doc-badge">{{ doc.tag }}</span>
+            <div class="doc-icon">📑</div>
+          </div>
+
+          <h3 class="doc-title">{{ doc.titulo }}</h3>
+          <p class="doc-desc">{{ doc.descricao }}</p>
+
+          <div class="doc-download-actions">
+            <a *ngIf="doc.pdfUrl" [href]="doc.pdfUrl" target="_blank" download class="btn-download pdf">
+              <span class="ext-badge">PDF</span>
+              <span>Baixar Arquivo</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
             </a>
+
+            <a *ngIf="doc.docxUrl" [href]="doc.docxUrl" target="_blank" download class="btn-download docx">
+              <span class="ext-badge">DOCX</span>
+              <span>Baixar Word</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+            </a>
+          </div>
         </div>
-      </div></li>
-      <hr>
-      <li><div><span>Declaração de domicílio/residência</span>
-        <div class="download-options">
-          <a [routerLink]="'/documentos/DECLARACAO DE DOMICILIO.docx'" target="_blank">
-            <span>.docx</span><a class="download-icon"></a>
-          </a>
-          <a [routerLink]="'/documentos/DECLARACAO DE DOMICILIO.pdf'" target="_blank">
-            <span>.pdf</span><a class="download-icon"></a>
-          </a>
+      </div>
+    </section>
+
+    <!-- Card de Apoio WhatsApp -->
+    <div class="help-banner">
+      <div class="help-content">
+        <span class="help-icon">💡</span>
+        <div>
+          <strong>Dúvidas sobre o preenchimento ou assinaturas?</strong>
+          <p>Nossa equipe confere toda a sua documentação antes do protocolo oficial para evitar pendências ou recusas.</p>
         </div>
-      </div></li>
-      <hr>
-      <li><div><span>Requerimento único</span>
-        <div class="download-options">
-          <a [routerLink]="'/documentos/REQUERIMENTO UNICO.docx'" target="_blank">
-            <span>.docx</span><a class="download-icon"></a>
-          </a>
-          <a [routerLink]="'/documentos/REQUERIMENTO UNICO.pdf'" target="_blank">
-            <span>.pdf</span><a class="download-icon"></a>
-          </a>
-        </div>
-      </div></li>
-      <hr>
-    </ul>
-  </div>
-  <div class="container links">
-    <h3>Links</h3><hr>
-    <ul>
-      <li><a href="https://www.detran.ba.gov.br/" target="_blank"><span>DETRAN BA</span></a></li><hr>
-      <li><a href="https://www.gov.br/receitafederal/pt-br/servicos" target="_blank"><span>Receita Federal</span></a></li><hr>
-      <li><a href="https://www.sefaz.ba.gov.br/" target="_blank"><span>Secretaria da Fazenda BA</span></a></li><hr>
-      <li><a href="https://centralsol.com.br/Ssdr/" target="_blank"><span>Central SOL</span></a></li><hr>
-      <li><a href="https://servicos.receita.fazenda.gov.br/Servicos/CPF/ConsultaSituacao/ConsultaPublica.asp" target="_blank"><span>Consultar CPF</span></a></li><hr>
-      <li><a href="https://servicos.neoenergiacoelba.com.br/Pages/todos-os-servicos.aspx" target="_blank"><span>COELBA</span></a></li><hr>
-      <li><a href="https://www.embasa.ba.gov.br/centralservicos/" target="_blank"><span>EMBASA</span></a></li><hr>
-    </ul>
+      </div>
+      <button class="btn-whatsapp" (click)="openWhatsappAjuda()">
+        Tirar Dúvidas com o Despachante
+      </button>
+    </div>
+
+    <!-- Bloco de Links Úteis -->
+    <section class="section-links">
+      <div class="sub-header">
+        <h2>🌐 Portais e Órgãos Oficiais</h2>
+        <span>Acesso rápido e seguro para consultas estaduais e federais</span>
+      </div>
+
+      <div class="links-grid">
+        <a *ngFor="let link of linksUteis" [href]="link.url" target="_blank" rel="noopener noreferrer" class="link-card">
+          <div class="link-card-header">
+            <span class="link-icon">{{ link.icon }}</span>
+            <span class="external-indicator">
+              Acessar ↗
+            </span>
+          </div>
+          <h3 class="link-name">{{ link.nome }}</h3>
+          <span class="link-orgao">{{ link.orgao }}</span>
+          <p class="link-desc">{{ link.descricao }}</p>
+        </a>
+      </div>
+    </section>
   </div>
 </div>

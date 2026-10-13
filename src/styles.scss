@@ -1,66 +1,236 @@
-/* You can add global styles to this file, and also import other style files */
-$branco-claro: #FAFAFA;
-$preto-claro: #242424;
+/* ==========================================================================
+   Felisberto Despachante - Modern Design System 2026
+   ========================================================================== */
 
-$branco-letras: #FFFFFF;
-$preto-letras: #171717;
-$vermelho-letras: #DE353B;
+:root {
+  --primary: #c51e26;
+  --primary-light: #e63946;
+  --primary-dark: #9e141b;
+  --primary-glow: rgba(197, 30, 38, 0.2);
 
-$vermelho-button: #DE353B;
+  --slate-950: #0a0f1d;
+  --slate-900: #0f172a;
+  --slate-800: #1e293b;
+  --slate-700: #334155;
+  --slate-600: #475569;
+  --slate-400: #94a3b8;
+  --slate-200: #e2e8f0;
+  --slate-100: #f1f5f9;
+  --slate-50: #f8fafc;
 
-*{
-  padding: 0;
+  --gold: #f59e0b;
+  --gold-light: #fef3c7;
+  --green-whatsapp: #25d366;
+  --green-whatsapp-dark: #128c7e;
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', var(--font-sans);
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.15), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-glow: 0 0 25px var(--primary-glow);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+  --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
   margin: 0;
-  font-family: 'roboto', sans-serif;
+  padding: 0;
 }
 
-h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
 }
 
-h2 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+body {
+  font-family: var(--font-sans);
+  background-color: var(--slate-50);
+  color: var(--slate-900);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-h3 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--slate-900);
+  letter-spacing: -0.02em;
 }
 
-.bg-branco{
-  display: flex;
-  padding: 100px 65px;
-  background-color: $branco-claro;
-  color: $preto-letras;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-.bg-preto{
-  display: flex;
-  padding: 75px 5%;
-  background-color: $preto-claro;
-  color: $branco-letras;
-  h2{
-    font-size: 32px;
+button {
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Container padrão */
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Badge de destaque */
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(197, 30, 38, 0.1);
+  color: var(--primary);
+  border: 1px solid rgba(197, 30, 38, 0.2);
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.badge-gold {
+  background: rgba(245, 158, 11, 0.12);
+  color: #b45309;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+/* Botões modernos */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: #ffffff;
+  padding: 14px 28px;
+  border-radius: var(--radius-full);
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(197, 30, 38, 0.35);
+  transition: var(--transition);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(197, 30, 38, 0.45);
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 }
 
-.cor-auxiliar{
-  color: $vermelho-letras;
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #ffffff;
+  color: var(--slate-800);
+  border: 1px solid var(--slate-200);
+  padding: 14px 28px;
+  border-radius: var(--radius-full);
+  font-size: 1rem;
+  font-weight: 600;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+
+  &:hover {
+    background: var(--slate-100);
+    border-color: var(--slate-300);
+    transform: translateY(-2px);
+  }
 }
 
-.btn-vermelho{
-  background-color: $vermelho-button;
-  color: $branco-letras;
-  border-radius: 50px;
-  width: 176px;
-  height: 47px;
-  border: none;
-  font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  color: #ffffff;
+  padding: 14px 28px;
+  border-radius: var(--radius-full);
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
+  transition: var(--transition);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 22px rgba(37, 211, 102, 0.5);
+    filter: brightness(1.05);
+  }
+}
+
+/* Card padrão */
+.card-modern {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--slate-200);
+  box-shadow: var(--shadow-sm);
+  padding: 32px;
+  transition: var(--transition);
+
+  &:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(197, 30, 38, 0.2);
+    transform: translateY(-4px);
+  }
+}
+
+/* Seções globais */
+section {
+  padding: 96px 0;
+  position: relative;
+
+  @media (max-width: 768px) {
+    padding: 64px 0;
+  }
+}
+
+.section-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 56px auto;
+
+  h2 {
+    font-size: 2.25rem;
+    margin-top: 12px;
+    margin-bottom: 16px;
+
+    @media (max-width: 768px) {
+      font-size: 1.85rem;
+    }
+  }
+
+  p {
+    color: var(--slate-600);
+    font-size: 1.1rem;
+  }
 }

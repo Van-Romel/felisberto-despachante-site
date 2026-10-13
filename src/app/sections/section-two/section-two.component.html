@@ -1,134 +1,174 @@
-<div class="bg-branco section-two" id="licenciamento">
-  <table>
-    <tr class="tab-row-titulo">
-      <th></th>
-      <th colspan="5">PARCELAMENTO</th>
-      <th colspan="3">PAGAMENTO EM COTA ÚNICA</th>
-    </tr>
-    <tr class="tab-row-subtitulo">
-      <td>FINAL</td>
-      <td>1º COTA</td>
-      <td>2º COTA</td>
-      <td>3º COTA</td>
-      <td>4º COTA</td>
-      <td>5º COTA</td>
-      <td>Com desconto de 20%</td>
-      <td>Com desconto de 10%</td>
-      <td>Sem desconto</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>{{final1[0]}}</td>
-      <td>{{final1[1]}}</td>
-      <td>{{final1[2]}}</td>
-      <td>{{final1[3]}}</td>
-      <td>{{final1[4]}}</td>
-      <td>{{final1[5]}}</td>
-      <td>{{final1[6]}}</td>
-      <td>{{final1[7]}}</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>{{final2[0]}}</td>
-      <td>{{final2[1]}}</td>
-      <td>{{final2[2]}}</td>
-      <td>{{final2[3]}}</td>
-      <td>{{final2[4]}}</td>
-      <td>{{final2[5]}}</td>
-      <td>{{final2[6]}}</td>
-      <td>{{final2[7]}}</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>{{final3[0]}}</td>
-      <td>{{final3[1]}}</td>
-      <td>{{final3[2]}}</td>
-      <td>{{final3[3]}}</td>
-      <td>{{final3[4]}}</td>
-      <td>{{final3[5]}}</td>
-      <td>{{final3[6]}}</td>
-      <td>{{final3[7]}}</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>{{final4[0]}}</td>
-      <td>{{final4[1]}}</td>
-      <td>{{final4[2]}}</td>
-      <td>{{final4[3]}}</td>
-      <td>{{final4[4]}}</td>
-      <td>{{final4[5]}}</td>
-      <td>{{final4[6]}}</td>
-      <td>{{final4[7]}}</td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td>{{final5[0]}}</td>
-      <td>{{final5[1]}}</td>
-      <td>{{final5[2]}}</td>
-      <td>{{final5[3]}}</td>
-      <td>{{final5[4]}}</td>
-      <td>{{final5[5]}}</td>
-      <td>{{final5[6]}}</td>
-      <td>{{final5[7]}}</td>
-    </tr>
-    <tr>
-      <td>6</td>
-      <td>{{final6[0]}}</td>
-      <td>{{final6[1]}}</td>
-      <td>{{final6[2]}}</td>
-      <td>{{final6[3]}}</td>
-      <td>{{final6[4]}}</td>
-      <td>{{final6[5]}}</td>
-      <td>{{final6[6]}}</td>
-      <td>{{final6[7]}}</td>
-    </tr>
-    <tr>
-      <td>7</td>
-      <td>{{final7[0]}}</td>
-      <td>{{final7[1]}}</td>
-      <td>{{final7[2]}}</td>
-      <td>{{final7[3]}}</td>
-      <td>{{final7[4]}}</td>
-      <td>{{final7[5]}}</td>
-      <td>{{final7[6]}}</td>
-      <td>{{final7[7]}}</td>
-    </tr>
-    <tr>
-      <td>8</td>
-      <td>{{final8[0]}}</td>
-      <td>{{final8[1]}}</td>
-      <td>{{final8[2]}}</td>
-      <td>{{final8[3]}}</td>
-      <td>{{final8[4]}}</td>
-      <td>{{final8[5]}}</td>
-      <td>{{final8[6]}}</td>
-      <td>{{final8[7]}}</td>
-    </tr>
-    <tr>
-      <td>9</td>
-      <td>{{final9[0]}}</td>
-      <td>{{final9[1]}}</td>
-      <td>{{final9[2]}}</td>
-      <td>{{final9[3]}}</td>
-      <td>{{final9[4]}}</td>
-      <td>{{final9[5]}}</td>
-      <td>{{final9[6]}}</td>
-      <td>{{final9[7]}}</td>
-    </tr>
-    <tr>
-      <td>0</td>
-      <td>{{final0[0]}}</td>
-      <td>{{final0[1]}}</td>
-      <td>{{final0[2]}}</td>
-      <td>{{final0[3]}}</td>
-      <td>{{final0[4]}}</td>
-      <td>{{final0[5]}}</td>
-      <td>{{final0[6]}}</td>
-      <td>{{final0[7]}}</td>
-    </tr>
-  </table>
-  <div>
-    <h2>CALENDÁRIO DE <br>LICENCIAMENTO</h2>
-    <h3 class="cor-auxiliar">2 0 2 4</h3>
+<section class="section-licenciamento" id="licenciamento">
+  <div class="container">
+    <div class="section-header">
+      <div class="badge-pill">CALENDÁRIO OFICIAL</div>
+      <h2>Consulte os Prazos de Licenciamento & IPVA</h2>
+      <p>Evite multas e juros por atraso. Selecione o último dígito da placa do seu veículo para ver as datas de desconto e parcelamento.</p>
+    </div>
+
+    <!-- Seletor Interativo de Finais de Placa -->
+    <div class="selector-card card-modern">
+      <div class="selector-heading">
+        <span>Selecione o final da sua placa:</span>
+      </div>
+
+      <div class="plates-grid">
+        <button
+          *ngFor="let item of calendario"
+          type="button"
+          class="plate-btn"
+          [class.active]="selectedFinal === item.final"
+          (click)="selectFinal(item.final)"
+        >
+          {{ item.final }}
+        </button>
+      </div>
+
+      <!-- Card com Resultado Detalhado do Final Selecionado -->
+      <div class="plate-result-box">
+        <div class="result-header">
+          <div class="plate-badge">
+            <span class="plate-icon">🚗</span>
+            <span>PLACA FINAL <strong>{{ currentItem.final }}</strong></span>
+          </div>
+          <span class="result-status">Vigência Anual</span>
+        </div>
+
+        <div class="result-cards-grid">
+          <!-- Cota Única 20% -->
+          <div class="option-card highlight-discount">
+            <div class="option-top">
+              <span class="discount-pill">20% DE DESCONTO</span>
+              <span class="option-title">Cota Única Antecipada</span>
+            </div>
+            <div class="option-date">{{ currentItem.cotaUnica20 }}</div>
+            <div class="option-desc">Maior economia para quitação integral</div>
+          </div>
+
+          <!-- Cota Única 10% -->
+          <div class="option-card">
+            <div class="option-top">
+              <span class="discount-pill mild">10% DE DESCONTO</span>
+              <span class="option-title">Cota Única Regular</span>
+            </div>
+            <div class="option-date">{{ currentItem.cotaUnica10 }}</div>
+            <div class="option-desc">Quitação à vista com desconto</div>
+          </div>
+
+          <!-- Sem Desconto -->
+          <div class="option-card">
+            <div class="option-top">
+              <span class="discount-pill neutral">LIMITE FINAL</span>
+              <span class="option-title">Cota Única Sem Desconto</span>
+            </div>
+            <div class="option-date">{{ currentItem.cotaUnicaSemDesconto }}</div>
+            <div class="option-desc">Data limite para pagamento integral</div>
+          </div>
+        </div>
+
+        <!-- Parcelamento em 5 Cotas -->
+        <div class="parcelas-section">
+          <div class="parcelas-title">Opção de Parcelamento em 5 Cotas Mensais:</div>
+          <div class="parcelas-grid">
+            <div class="parcela-item" *ngFor="let cota of currentItem.cotas; let i = index">
+              <span class="parcela-num">{{ i + 1 }}ª Cota</span>
+              <strong class="parcela-date">{{ cota }}</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA Direto para o Despachante -->
+        <div class="result-cta-footer">
+          <div class="cta-text-wrapper">
+            <strong>Deseja que cuidemos do pagamento e emissão do seu CRLV?</strong>
+            <span>Fazemos a consulta completa de débitos e emitimos seu documento digital rapidamente.</span>
+          </div>
+          <button class="btn-whatsapp" (click)="consultarNoWhatsapp()">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.077-2.029-.475-1.624-.675-2.67-2.327-2.75-2.435-.081-.107-.655-.873-.655-1.664 0-.791.413-1.18.561-1.341.147-.161.32-.201.427-.201.107 0 .213.002.306.007.098.006.23-.037.36.275.133.32.454 1.108.494 1.189.04.081.067.176.013.283-.053.107-.08.174-.16.267-.08.093-.169.208-.242.279-.081.08-.166.167-.071.33.095.163.42 1.002 1.258 1.488.423.246.778.322.94.39.162.067.257.058.354-.053.097-.11.417-.487.528-.654.111-.167.222-.139.375-.083.153.056.97.458 1.137.541.167.083.278.125.319.194.041.07.041.403-.103.808z"/>
+            </svg>
+            Regularizar Placa Final {{ currentItem.final }} no WhatsApp
+          </button>
+        </div>
+      </div>
+
+      <!-- Toggle para Tabela Completa -->
+      <div class="toggle-table-wrapper">
+        <button class="btn-toggle-table" (click)="toggleFullTable()">
+          {{ showFullTable ? 'Ocultar Tabela Completa' : 'Ver Calendário Completo de Todas as Placas' }}
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline [attr.points]="showFullTable ? '18 15 12 9 6 15' : '6 9 12 15 18 9'"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Tabela Completa Responsiva -->
+      <div class="full-table-container" *ngIf="showFullTable">
+        <div class="table-tabs">
+          <button
+            class="tab-btn"
+            [class.active]="activeTableTab === 'parcelamento'"
+            (click)="setTableTab('parcelamento')"
+          >
+            Opção Parcelamento (5x)
+          </button>
+          <button
+            class="tab-btn"
+            [class.active]="activeTableTab === 'cota-unica'"
+            (click)="setTableTab('cota-unica')"
+          >
+            Opção Cota Única (À Vista)
+          </button>
+        </div>
+
+        <!-- Tabela Parcelamento -->
+        <div class="table-responsive" *ngIf="activeTableTab === 'parcelamento'">
+          <table class="modern-table">
+            <thead>
+              <tr>
+                <th>Final</th>
+                <th>1ª Cota</th>
+                <th>2ª Cota</th>
+                <th>3ª Cota</th>
+                <th>4ª Cota</th>
+                <th>5ª Cota</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let row of calendario" [class.highlighted]="row.final === selectedFinal">
+                <td><strong>{{ row.final }}</strong></td>
+                <td>{{ row.cotas[0] }}</td>
+                <td>{{ row.cotas[1] }}</td>
+                <td>{{ row.cotas[2] }}</td>
+                <td>{{ row.cotas[3] }}</td>
+                <td>{{ row.cotas[4] }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Tabela Cota Única -->
+        <div class="table-responsive" *ngIf="activeTableTab === 'cota-unica'">
+          <table class="modern-table">
+            <thead>
+              <tr>
+                <th>Final</th>
+                <th>Com Desconto (20%)</th>
+                <th>Com Desconto (10%)</th>
+                <th>Sem Desconto</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let row of calendario" [class.highlighted]="row.final === selectedFinal">
+                <td><strong>{{ row.final }}</strong></td>
+                <td><span class="tag-table green">{{ row.cotaUnica20 }}</span></td>
+                <td><span class="tag-table blue">{{ row.cotaUnica10 }}</span></td>
+                <td>{{ row.cotaUnicaSemDesconto }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+</section>

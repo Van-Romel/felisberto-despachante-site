@@ -1,50 +1,70 @@
-import {Component, OnInit, ChangeDetectorRef} from '@angular/core';
-import {Router, NavigationEnd} from '@angular/router';
+import { Component, OnInit, HostListener } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Router, NavigationEnd, RouterModule } from '@angular/router';
+import { LinksService, UnidadeDespachante } from '../services/links.service';
 
 @Component({
   selector: 'app-header',
+  standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  currentPage!: string;
-  isDropdownOpen = false;
-  pages: string[] = ['home', 'arquivos'];
+  isMobileMenuOpen = false;
+  isScrolled = false;
+  currentUrl = '/home';
+  selectedUnidade: UnidadeDespachante = 'geral';
 
-  constructor(private router: Router, private cdr: ChangeDetectorRef) {
-  }
+  constructor(
+    private router: Router,
+    public linksService: LinksService
+  ) {}
 
-  ngOnInit() {
-    this.updateCurrentPage();
-
-    this.router.events.subscribe(event => {
+  ngOnInit(): void {
+    this.currentUrl = this.router.url;
+    this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        this.updateCurrentPage();
+        this.currentUrl = event.urlAfterRedirects;
+        this.isMobileMenuOpen = false;
       }
     });
   }
 
-  private updateCurrentPage() {
-    this.currentPage = this.router.url;
-    this.cdr.detectChanges();
+  @HostListener('window:scroll', [])
+  onWindowScroll(): void {
+    this.isScrolled = window.scrollY > 20;
   }
 
-  toggleDropdown() {
-    this.isDropdownOpen = !this.isDropdownOpen;
+  toggleMobileMenu(): void {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
   }
 
-  selectOption(option: string) {
-    if (this.currentPage.toString() != '/' + option) {
-      this.currentPage = option;
-      this.isDropdownOpen = false;
-      this.router.navigate([option]);
+  closeMobileMenu(): void {
+    this.isMobileMenuOpen = false;
+  }
+
+  goToSection(sectionId: string): void {
+    this.closeMobileMenu();
+    if (this.currentUrl.includes('/arquivos')) {
+      this.router.navigate(['/home']).then(() => {
+        setTimeout(() => {
+          this.scrollToElement(sectionId);
+        }, 150);
+      });
+    } else {
+      this.scrollToElement(sectionId);
     }
   }
 
-  goToSection(section: string) {
-    // this.router.navigateByUrl('home#' + section);
+  private scrollToElement(elementId: string): void {
+    const el = document.getElementById(elementId);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
 
-    // @ts-ignore
-    document.getElementById(section).scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"})
+  openWhatsApp(unidade: UnidadeDespachante = 'geral'): void {
+    this.linksService.openWhatsApp(unidade);
   }
 }
