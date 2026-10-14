@@ -44,13 +44,13 @@ export class UnidadeComponent implements OnInit {
       whatsappRaw: '5577999965588',
       telefoneFixo: '(77) 3612-5916',
       horario: 'Segunda a Sexta: 08:00 às 18:00',
-      descricao: 'O escritório de Barreiras é referência histórica em assessoria veicular no oeste baiano desde 2007. Estrutura completa para protocolar transferências, primeiro emplacamento, vistorias e resolver qualquer pendência documental junto ao DETRAN-BA com rapidez e segurança jurídica.',
+      descricao: 'Referência em assessoria veicular em Barreiras desde 2007. Estrutura completa para resolver transferências, emplacamentos e débitos no DETRAN com agilidade e total segurança jurídica.',
       especialidades: [
-        'Transferência rápida de propriedade de veículos leves e pesados',
-        'Primeiro emplacamento Mercosul de veículos novos',
+        'Transferência de veículos leves e pesados',
+        'Primeiro emplacamento Mercosul',
         '2ª via de CRV / ATPV-e e intenção de venda',
-        'Parcelamento de débitos, multas e IPVA atrasado',
-        'Regularização ANTT, baixa de sinistro e certidões veiculares'
+        'Parcelamento facilitado de IPVA e multas',
+        'Cadastro ANTT, vistorias e certidões'
       ],
       outraUnidadeId: 'lem',
       outraUnidadeNome: 'Luís Eduardo Magalhães (LEM)'
@@ -58,21 +58,21 @@ export class UnidadeComponent implements OnInit {
     lem: {
       id: 'lem',
       nomeCidade: 'Luís Eduardo Magalhães (LEM) / BA',
-      subtitulo: 'Atendimento Especializado para o Polo do Agro, Frotas e Famílias',
+      subtitulo: 'Atendimento Ágil para Frotas, Agro e Condutores',
       endereco: 'Rua José Cardoso de Lima, nº 5441',
       bairroCidade: 'Luís Eduardo Magalhães - BA',
-      referencia: 'Atendimento presencial e suporte ágil para condutores e frotistas da região oeste',
+      referencia: 'Atendimento presencial e suporte ágil no centro da cidade',
       mapsUrl: 'https://maps.app.goo.gl/ohhGB2GUCxMAGtXX7',
       whatsapp: '(77) 99800-9877',
       whatsappRaw: '5577998009877',
       horario: 'Segunda a Sexta: 08:00 às 18:00',
-      descricao: 'Nossa unidade em Luís Eduardo Magalhães foi estruturada para atender com máxima eficiência o ritmo do oeste baiano. Atendemos proprietários de utilitários, caminhonetes, maquinários, frotas corporativas do agronegócio e condutores particulares que precisam de agilidade e zero complicação burocrática.',
+      descricao: 'Atendimento rápido e eficiente para o polo do agronegócio, frotistas e motoristas particulares de LEM. Regularize seu veículo sem filas e sem burocracia.',
       especialidades: [
-        'Atendimento prioritário a frotas, produtores rurais e empresas',
+        'Atendimento a frotas e produtores rurais',
         'Emplacamento e transferência de utilitários e caminhões',
-        'Emissão ágil de CRLV-e digital para circulação imediata',
-        'Regularização e parcelamento de tributos estaduais',
-        'Inscrição e renovação ANTT (RNTRC) e vistorias veiculares'
+        'Emissão imediata de CRLV-e digital',
+        'Parcelamento de débitos e tributos estaduais',
+        'Inscrição e renovação ANTT (RNTRC)'
       ],
       outraUnidadeId: 'barreiras',
       outraUnidadeNome: 'Barreiras'

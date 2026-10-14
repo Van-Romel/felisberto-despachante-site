@@ -26,7 +26,7 @@ export class SectionServicosComponent {
       id: 'transf',
       category: 'veiculos',
       title: 'Transferência de Propriedade',
-      description: 'Transferência completa de veículo entre proprietários com vistoria, certidões e emissão rápida no DETRAN-BA.',
+      description: 'Processo completo com vistoria, certidões e emissão ágil no DETRAN.',
       icon: '🚗',
       highlight: true
     },
@@ -34,7 +34,7 @@ export class SectionServicosComponent {
       id: 'emplacamento',
       category: 'veiculos',
       title: 'Primeiro Emplacamento',
-      description: 'Regularização e emplacamento Mercosul de veículos zero km com agilidade direto para você ou concessionária.',
+      description: 'Emplacamento Mercosul para veículos zero km com rapidez e comodidade.',
       icon: '✨',
       highlight: true
     },
@@ -42,21 +42,21 @@ export class SectionServicosComponent {
       id: 'crlv',
       category: 'licenciamento',
       title: 'Emissão de CRLV-e (Licenciamento Anual)',
-      description: 'Emissão e impressão oficial do documento de circulação veicular anual regularizado no DETRAN-BA.',
+      description: 'Documento anual digital atualizado e liberado para circulação imediata.',
       icon: '📄'
     },
     {
       id: 'crv',
       category: 'veiculos',
       title: '2ª Via de CRV / ATPV-e',
-      description: 'Emissão e recuperação do documento de compra e venda (antigo DUT) em caso de perda, rasura ou extravio.',
+      description: 'Recuperação rápida do documento de compra e venda (antigo DUT) rasurado ou perdido.',
       icon: '📑'
     },
     {
       id: 'ipva-vistoria',
       category: 'licenciamento',
       title: 'Parcelamento de Débitos & IPVA',
-      description: 'Levantamento de multas, débitos pendentes, taxa de licenciamento e facilidade de parcelamento.',
+      description: 'Consulta de multas, IPVA e taxas com parcelamento facilitado no cartão.',
       icon: '💳',
       highlight: true
     },
@@ -64,35 +64,35 @@ export class SectionServicosComponent {
       id: 'comunicado',
       category: 'veiculos',
       title: 'Comunicado de Venda',
-      description: 'Registro oficial de venda no DETRAN, garantindo proteção jurídica contra multas e pontuação futuras.',
+      description: 'Proteção jurídica contra multas e pontuação após vender seu veículo.',
       icon: '🛡️'
     },
     {
       id: 'placa',
       category: 'veiculos',
       title: '2ª Via & Autorização de Placa Mercosul',
-      description: 'Autorização de estampagem e substituição de placas danificadas, furto ou conversão ao padrão Mercosul.',
+      description: 'Substituição de placa danificada, extraviada ou troca para o padrão Mercosul.',
       icon: '🚙'
     },
     {
       id: 'antt',
       category: 'regularizacao',
       title: 'Cadastro e Renovação ANTT (RNTRC)',
-      description: 'Inscrição e renovação no Registro Nacional de Transportadores Rodoviários de Cargas para transportadores e frotas.',
+      description: 'Emissão e renovação de registro para caminhoneiros, transportadores e frotas.',
       icon: '🚛'
     },
     {
       id: 'baixa',
       category: 'regularizacao',
       title: 'Baixa de Veículo & Sinistro',
-      description: 'Procedimento legal de baixa definitiva de veículo junto ao DETRAN por perda total, sinistro ou desmanche.',
+      description: 'Baixa definitiva no DETRAN por perda total, sinistro ou desmanche legal.',
       icon: '🔧'
     },
     {
       id: 'consultas',
       category: 'licenciamento',
       title: 'Consultas de Débitos & Restrições',
-      description: 'Levantamento minucioso da situação do veículo: multas estaduais/federais, restrições financeiras e gravame.',
+      description: 'Levantamento completo de multas, débitos pendentes e restrições financeiras.',
       icon: '🔍'
     }
   ];

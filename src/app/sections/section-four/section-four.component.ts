@@ -24,22 +24,22 @@ export class SectionFourComponent {
   depoimentos: DepoimentoItem[] = [
     {
       autor: 'Lucas M.',
-      local: 'Cliente em Barreiras / BA',
-      texto: 'Atendimento excelente! Transferência do meu veículo resolvida com muita agilidade e sem nenhuma burocracia.',
+      local: 'Barreiras / BA',
+      texto: 'Atendimento impecável! Transferência do veículo concluída com rapidez e sem complicação.',
       avaliacao: 5,
       servico: 'Transferência de Veículo'
     },
     {
       autor: 'Carla S.',
-      local: 'Cliente em Luís Eduardo Magalhães / BA',
-      texto: 'Super recomendo o Felisberto Despachante. Resolveram o parcelamento do IPVA e a segunda via do documento muito rápido.',
+      local: 'Luís Eduardo Magalhães / BA',
+      texto: 'Resolveram o parcelamento do IPVA e o documento digital no mesmo dia. Muito prático!',
       avaliacao: 5,
       servico: 'Licenciamento & Débitos'
     },
     {
       autor: 'Marcos A.',
       local: 'Frotista / Região Oeste',
-      texto: 'Sempre confio os emplacamentos e processos da frota ao Felisberto. Pontualidade, seriedade e honestidade nas taxas.',
+      texto: 'Cuidam dos emplacamentos da nossa frota com total pontualidade e transparência.',
       avaliacao: 5,
       servico: '1º Emplacamento & Frotas'
     }
