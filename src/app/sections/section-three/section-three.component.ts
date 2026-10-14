@@ -10,9 +10,10 @@ import { LinksService } from '../../services/links.service';
   styleUrls: ['./section-three.component.scss']
 })
 export class SectionThreeComponent {
-  constructor(private linksService: LinksService) {}
+  constructor(public linksService: LinksService) {}
 
-  openWhatsapp(): void {
-    this.linksService.openWhatsApp('geral', 'Olá! Gostaria de conhecer melhor os serviços do Felisberto Despachante. Felisberto Resolve!');
+  openWhatsapp(unidade: 'barreiras' | 'lem' = 'barreiras'): void {
+    const msg = 'Olá! Gostaria de falar sobre a documentação do meu veículo com o Felisberto Despachante.';
+    this.linksService.openWhatsApp(unidade, msg);
   }
 }

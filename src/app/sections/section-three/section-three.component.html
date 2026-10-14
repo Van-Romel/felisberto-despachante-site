@@ -22,14 +22,10 @@
       <!-- Conteúdo Sobre Nós -->
       <div class="sobre-content">
         <div class="badge-pill">SOBRE O FELISBERTO DESPACHANTE</div>
-        <h2 class="sobre-title">Compromisso com a sua tranquilidade e a segurança do seu patrimônio.</h2>
+        <h2 class="sobre-title">Tradição, agilidade e segurança jurídica para o seu veículo.</h2>
         
         <p class="sobre-intro">
-          Fundado com o propósito de descomplicar processos burocráticos, o <strong>Felisberto Despachante</strong> atua há mais de 15 anos oferecendo assessoria documental ágil, ética e transparente para pessoas físicas e empresas.
-        </p>
-
-        <p class="sobre-desc">
-          Entendemos que o seu veículo é um patrimônio valioso e que o seu tempo é precioso. Por isso, nossa equipe especializada monitora constantemente as mudanças nas legislações de trânsito e nos procedimentos dos órgãos oficiais (DETRAN, SEFAZ, DENATRAN e Receita Federal), garantindo que cada transferência, emplacamento ou quitação seja executado sem retrabalho e no menor prazo possível.
+          Desde 2007, o <strong>Felisberto Despachante</strong> ajuda motoristas, famílias e frotistas da região oeste a resolver qualquer pendência documental sem estresse e sem filas no DETRAN.
         </p>
 
         <!-- Diferenciais de Confiança -->
@@ -37,43 +33,52 @@
           <div class="pillar-item">
             <div class="pillar-icon">⚡</div>
             <div class="pillar-info">
-              <strong>Rapidez Sem Burocracia</strong>
-              <span>Processos diretos e sem idas repetitivas a balcões de atendimento.</span>
+              <strong>Sem Burocracia</strong>
+              <span>Resolvemos direto nos órgãos para você não perder tempo em balcões.</span>
             </div>
           </div>
 
           <div class="pillar-item">
             <div class="pillar-icon">🛡️</div>
             <div class="pillar-info">
-              <strong>Credenciamento Oficial</strong>
-              <span>Atuação legalizada e em total conformidade com o CRDD-BA.</span>
+              <strong>Credenciado CRDD-BA</strong>
+              <span>Atuação 100% legalizada e com segurança jurídica comprovada.</span>
             </div>
           </div>
 
           <div class="pillar-item">
             <div class="pillar-icon">💬</div>
             <div class="pillar-info">
-              <strong>Acompanhamento Pessoal</strong>
-              <span>Informamos você sobre cada etapa do seu processo pelo WhatsApp.</span>
+              <strong>Direto no WhatsApp</strong>
+              <span>Envie fotos dos documentos e acompanhe cada etapa pelo celular.</span>
             </div>
           </div>
 
           <div class="pillar-item">
             <div class="pillar-icon">💳</div>
             <div class="pillar-info">
-              <strong>Pagamento Flexível</strong>
-              <span>Opções facilitadas para quitação e parcelamento de débitos.</span>
+              <strong>Débitos Facilitados</strong>
+              <span>Parcelamento de IPVA, multas e taxas com as melhores condições.</span>
             </div>
           </div>
         </div>
 
         <div class="sobre-cta">
-          <button class="btn-whatsapp" (click)="openWhatsapp()">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.077-2.029-.475-1.624-.675-2.67-2.327-2.75-2.435-.081-.107-.655-.873-.655-1.664 0-.791.413-1.18.561-1.341.147-.161.32-.201.427-.201.107 0 .213.002.306.007.098.006.23-.037.36.275.133.32.454 1.108.494 1.189.04.081.067.176.013.283-.053.107-.08.174-.16.267-.08.093-.169.208-.242.279-.081.08-.166.167-.071.33.095.163.42 1.002 1.258 1.488.423.246.778.322.94.39.162.067.257.058.354-.053.097-.11.417-.487.528-.654.111-.167.222-.139.375-.083.153.056.97.458 1.137.541.167.083.278.125.319.194.041.07.041.403-.103.808z"/>
-            </svg>
-            Falar Diretamente com o Despachante
-          </button>
+          <div class="sobre-cta-label">Fale agora com a nossa equipe no WhatsApp:</div>
+          <div class="sobre-cta-buttons">
+            <button class="btn-whatsapp" (click)="openWhatsapp('barreiras')">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.077-2.029-.475-1.624-.675-2.67-2.327-2.75-2.435-.081-.107-.655-.873-.655-1.664 0-.791.413-1.18.561-1.341.147-.161.32-.201.427-.201.107 0 .213.002.306.007.098.006.23-.037.36.275.133.32.454 1.108.494 1.189.04.081.067.176.013.283-.053.107-.08.174-.16.267-.08.093-.169.208-.242.279-.081.08-.166.167-.071.33.095.163.42 1.002 1.258 1.488.423.246.778.322.94.39.162.067.257.058.354-.053.097-.11.417-.487.528-.654.111-.167.222-.139.375-.083.153.056.97.458 1.137.541.167.083.278.125.319.194.041.07.041.403-.103.808z"/>
+              </svg>
+              <span>📍 Falar com Barreiras</span>
+            </button>
+            <button class="btn-whatsapp btn-whatsapp-secondary" (click)="openWhatsapp('lem')">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.077-2.029-.475-1.624-.675-2.67-2.327-2.75-2.435-.081-.107-.655-.873-.655-1.664 0-.791.413-1.18.561-1.341.147-.161.32-.201.427-.201.107 0 .213.002.306.007.098.006.23-.037.36.275.133.32.454 1.108.494 1.189.04.081.067.176.013.283-.053.107-.08.174-.16.267-.08.093-.169.208-.242.279-.081.08-.166.167-.071.33.095.163.42 1.002 1.258 1.488.423.246.778.322.94.39.162.067.257.058.354-.053.097-.11.417-.487.528-.654.111-.167.222-.139.375-.083.153.056.97.458 1.137.541.167.083.278.125.319.194.041.07.041.403-.103.808z"/>
+              </svg>
+              <span>📍 Falar com LEM</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
