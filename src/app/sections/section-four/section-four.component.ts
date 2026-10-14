@@ -7,6 +7,7 @@ export interface DepoimentoItem {
   texto: string;
   avaliacao: number;
   servico: string;
+  mapsUrl: string;
 }
 
 @Component({
@@ -27,21 +28,24 @@ export class SectionFourComponent {
       local: 'Barreiras / BA',
       texto: 'Atendimento impecável! Transferência do veículo concluída com rapidez e sem complicação.',
       avaliacao: 5,
-      servico: 'Transferência de Veículo'
+      servico: 'Transferência de Veículo',
+      mapsUrl: 'https://maps.app.goo.gl/PBFUH54SkaZUMf7bA'
     },
     {
       autor: 'Carla S.',
       local: 'Luís Eduardo Magalhães / BA',
       texto: 'Resolveram o parcelamento do IPVA e o documento digital no mesmo dia. Muito prático!',
       avaliacao: 5,
-      servico: 'Licenciamento & Débitos'
+      servico: 'Licenciamento & Débitos',
+      mapsUrl: 'https://maps.app.goo.gl/ohhGB2GUCxMAGtXX7'
     },
     {
       autor: 'Marcos A.',
       local: 'Frotista / Região Oeste',
       texto: 'Cuidam dos emplacamentos da nossa frota com total pontualidade e transparência.',
       avaliacao: 5,
-      servico: '1º Emplacamento & Frotas'
+      servico: '1º Emplacamento & Frotas',
+      mapsUrl: 'https://maps.app.goo.gl/PBFUH54SkaZUMf7bA'
     }
   ];
 

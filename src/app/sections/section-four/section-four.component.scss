@@ -229,6 +229,27 @@
       }
     }
   }
+
+  .btn-review-link {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #38bdf8;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    align-self: flex-start;
+
+    &:hover {
+      color: #7dd3fc;
+      transform: translateX(3px);
+      text-decoration: underline;
+    }
+  }
 }
 
 .social-proof-footer {
