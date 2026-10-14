@@ -172,11 +172,39 @@
     transform: translateY(-3px);
   }
 
-  .card-stars {
-    color: #f59e0b;
-    font-size: 1rem;
-    letter-spacing: 2px;
+  .card-top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-bottom: 14px;
+
+    .card-stars {
+      color: #f59e0b;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      margin-bottom: 0;
+    }
+
+    .link-maps-discreet {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #64748b;
+      padding: 5px;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+
+      svg {
+        display: block;
+      }
+
+      &:hover {
+        color: #38bdf8;
+        background: rgba(255, 255, 255, 0.08);
+        transform: translateY(-1px);
+      }
+    }
   }
 
   .depoimento-texto {
@@ -227,27 +255,6 @@
         font-weight: 600;
         margin-top: 2px;
       }
-    }
-  }
-
-  .btn-review-link {
-    margin-top: 18px;
-    padding-top: 14px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: #38bdf8;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    align-self: flex-start;
-
-    &:hover {
-      color: #7dd3fc;
-      transform: translateX(3px);
-      text-decoration: underline;
     }
   }
 }

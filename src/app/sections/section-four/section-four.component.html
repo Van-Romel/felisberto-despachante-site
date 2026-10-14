@@ -40,7 +40,23 @@
     <!-- Grid de Depoimentos -->
     <div class="depoimentos-grid">
       <div class="depoimento-card" *ngFor="let d of depoimentos">
-        <div class="card-stars">★★★★★</div>
+        <div class="card-top-row">
+          <div class="card-stars">★★★★★</div>
+          <a
+            [href]="d.mapsUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="link-maps-discreet"
+            title="Ver perfil no Google Maps"
+            aria-label="Ver no Google Maps"
+          >
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+        </div>
         <p class="depoimento-texto">"{{ d.texto }}"</p>
         <div class="depoimento-meta">
           <div class="author-avatar">{{ d.autor.charAt(0) }}</div>
@@ -50,9 +66,6 @@
             <span class="author-service">{{ d.servico }}</span>
           </div>
         </div>
-        <a [href]="d.mapsUrl" target="_blank" rel="noopener noreferrer" class="btn-review-link">
-          <span>Ver avaliação no Google Maps ↗</span>
-        </a>
       </div>
     </div>
 
