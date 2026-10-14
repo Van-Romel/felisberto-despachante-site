@@ -48,9 +48,9 @@ export class UnidadeComponent implements OnInit {
       especialidades: [
         'Transferência rápida de propriedade de veículos leves e pesados',
         'Primeiro emplacamento Mercosul de veículos novos',
-        '2ª via de CRV / CRLV-e e intenção de venda (ATPV-e)',
+        '2ª via de CRV / ATPV-e e intenção de venda',
         'Parcelamento de débitos, multas e IPVA atrasado',
-        'Renovação de CNH e certidões negativas de trânsito'
+        'Regularização ANTT, baixa de sinistro e certidões veiculares'
       ],
       outraUnidadeId: 'lem',
       outraUnidadeNome: 'Luís Eduardo Magalhães (LEM)'
@@ -72,7 +72,7 @@ export class UnidadeComponent implements OnInit {
         'Emplacamento e transferência de utilitários e caminhões',
         'Emissão ágil de CRLV-e digital para circulação imediata',
         'Regularização e parcelamento de tributos estaduais',
-        'Elaboração de Procurações Oficiais PJ e PF'
+        'Inscrição e renovação ANTT (RNTRC) e vistorias veiculares'
       ],
       outraUnidadeId: 'barreiras',
       outraUnidadeNome: 'Barreiras'

@@ -4,7 +4,7 @@ import { LinksService } from '../../services/links.service';
 
 export interface ServicoItem {
   id: string;
-  category: 'veiculos' | 'licenciamento' | 'cnh';
+  category: 'veiculos' | 'licenciamento' | 'regularizacao';
   title: string;
   description: string;
   icon: string;
@@ -19,14 +19,14 @@ export interface ServicoItem {
   styleUrls: ['./section-servicos.component.scss']
 })
 export class SectionServicosComponent {
-  activeCategory: 'all' | 'veiculos' | 'licenciamento' | 'cnh' = 'all';
+  activeCategory: 'all' | 'veiculos' | 'licenciamento' | 'regularizacao' = 'all';
 
   servicos: ServicoItem[] = [
     {
       id: 'transf',
       category: 'veiculos',
       title: 'Transferência de Propriedade',
-      description: 'Transferência completa de veículo entre proprietários com vistoria, certidões e emissão rápida do CRLV-e.',
+      description: 'Transferência completa de veículo entre proprietários com vistoria, certidões e emissão rápida no DETRAN-BA.',
       icon: '🚗',
       highlight: true
     },
@@ -41,15 +41,15 @@ export class SectionServicosComponent {
     {
       id: 'crlv',
       category: 'licenciamento',
-      title: 'Emissão e 2ª Via de CRLV-e',
-      description: 'Atualização e emissão do documento digital de circulação veicular homologado no DETRAN-BA.',
+      title: 'Emissão de CRLV-e (Licenciamento Anual)',
+      description: 'Emissão e impressão oficial do documento de circulação veicular anual regularizado no DETRAN-BA.',
       icon: '📄'
     },
     {
       id: 'crv',
       category: 'veiculos',
-      title: '2ª Via de DUT / ATPV-e',
-      description: 'Recuperação do documento de compra e venda em caso de perda, rasura ou extravio.',
+      title: '2ª Via de CRV / ATPV-e',
+      description: 'Emissão e recuperação do documento de compra e venda (antigo DUT) em caso de perda, rasura ou extravio.',
       icon: '📑'
     },
     {
@@ -64,50 +64,36 @@ export class SectionServicosComponent {
       id: 'comunicado',
       category: 'veiculos',
       title: 'Comunicado de Venda',
-      description: 'Proteção jurídica para o vendedor, garantindo que infrações futuras não sejam vinculadas ao seu nome.',
+      description: 'Registro oficial de venda no DETRAN, garantindo proteção jurídica contra multas e pontuação futuras.',
       icon: '🛡️'
     },
     {
       id: 'placa',
       category: 'veiculos',
-      title: '2ª Via de Placa Mercosul',
-      description: 'Substituição de placas danificadas, furtadas ou atualização para o padrão Mercosul.',
+      title: '2ª Via & Autorização de Placa Mercosul',
+      description: 'Autorização de estampagem e substituição de placas danificadas, furto ou conversão ao padrão Mercosul.',
       icon: '🚙'
     },
     {
-      id: 'cnh',
-      category: 'cnh',
-      title: 'CNH & Regularização',
-      description: 'Renovação de habilitação, mudança de categoria, recursos e certidões do condutor.',
-      icon: '🪪'
-    },
-    {
-      id: 'procuracao',
-      category: 'cnh',
-      title: 'Procurações Oficiais (PF e PJ)',
-      description: 'Elaboração e conferência de procurações no padrão exigido pelo CRDD-BA e DETRAN.',
-      icon: '✍️'
-    },
-    {
       id: 'antt',
-      category: 'veiculos',
-      title: 'Cadastro e Renovação ANTT',
-      description: 'Inscrição no Registro Nacional de Transportadores Rodoviários de Cargas (RNTRC).',
+      category: 'regularizacao',
+      title: 'Cadastro e Renovação ANTT (RNTRC)',
+      description: 'Inscrição e renovação no Registro Nacional de Transportadores Rodoviários de Cargas para transportadores e frotas.',
       icon: '🚛'
     },
     {
-      id: 'licencas',
-      category: 'licenciamento',
-      title: 'Licenças Estaduais',
-      description: 'Autorizações especiais de trânsito e licenças junto aos órgãos estaduais competentes.',
-      icon: '⚖️'
+      id: 'baixa',
+      category: 'regularizacao',
+      title: 'Baixa de Veículo & Sinistro',
+      description: 'Procedimento legal de baixa definitiva de veículo junto ao DETRAN por perda total, sinistro ou desmanche.',
+      icon: '🔧'
     },
     {
-      id: 'baixa',
-      category: 'veiculos',
-      title: 'Baixa de Veículo & Desmanche',
-      description: 'Procedimento legal de baixa definitiva de veículo por sinistro ou perda total.',
-      icon: '🔧'
+      id: 'consultas',
+      category: 'licenciamento',
+      title: 'Consultas de Débitos & Restrições',
+      description: 'Levantamento minucioso da situação do veículo: multas estaduais/federais, restrições financeiras e gravame.',
+      icon: '🔍'
     }
   ];
 
@@ -120,7 +106,7 @@ export class SectionServicosComponent {
     return this.servicos.filter(s => s.category === this.activeCategory);
   }
 
-  setCategory(cat: 'all' | 'veiculos' | 'licenciamento' | 'cnh'): void {
+  setCategory(cat: 'all' | 'veiculos' | 'licenciamento' | 'regularizacao'): void {
     this.activeCategory = cat;
   }
 
