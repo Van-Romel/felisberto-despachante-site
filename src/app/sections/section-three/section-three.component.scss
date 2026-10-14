@@ -190,16 +190,8 @@
     .btn-whatsapp {
       flex: 1;
       min-width: 200px;
-      padding: 12px 20px;
-      font-size: 0.92rem;
-
-      &.btn-whatsapp-secondary {
-        background: #128c7e;
-
-        &:hover {
-          background: #0f7569;
-        }
-      }
+      padding: 13px 22px;
+      font-size: 0.94rem;
     }
 
     @media (max-width: 640px) {

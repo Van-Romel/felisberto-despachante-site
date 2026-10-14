@@ -166,19 +166,25 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+      background: #25d366;
       color: #ffffff;
       padding: 14px;
-      border-radius: 10px;
-      font-size: 0.95rem;
+      border-radius: var(--radius-full, 9999px);
+      border: none;
+      font-size: 0.96rem;
       font-weight: 700;
-      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
       transition: all 0.2s ease;
       cursor: pointer;
 
+      svg {
+        fill: #ffffff;
+      }
+
       &:hover {
-        filter: brightness(1.05);
+        background: #20ba5a;
         transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
       }
     }
   }
