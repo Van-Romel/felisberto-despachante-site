@@ -15,23 +15,13 @@ Este arquivo centraliza o roadmap, tarefas pendentes, débitos técnicos e melho
 * **Status:** Pronto para configuração de DNS / Cloudflare.
 * **Prioridade:** Alta.
 
-### [FELISBERTO-002] Simplificação da Zona Flutuante de Promoções
-* **Descrição:** Avaliar e simplificar o botão vermelho flutuante de promoções (`app-floating-whatsapp` / Sorteio Moto Elétrica Oeste Vistorias) para torná-lo mais elegante, menos intrusivo e mais harmônico no mobile.
-* **Status:** Pendente.
-* **Prioridade:** Média.
-
-### [FELISBERTO-003] Simplificação das Páginas de Parceiros & Nossos Escritórios
-* **Descrição:** Reduzir textos e simplificar a navegação das páginas secundárias:
-  - `/parceiros` (Parceiros e vistorias).
-  - `/unidades/barreiras` e `/unidades/lem` (Escritórios físicos).
-* **Status:** Pendente.
-* **Prioridade:** Média.
-
 ---
 
 ## ✅ Concluído Recentemente
+- [x] [FELISBERTO-002] Simplificação da zona flutuante de promoções (`app-floating-whatsapp`), textos enxutos, botão WhatsApp verde oficial padronizado e media queries responsivas.
+- [x] [FELISBERTO-003] Simplificação das páginas `/parceiros` e `/unidades` (Barreiras e LEM) com textos objetivos e leitura fluida para mobile.
 - [x] Unificação total das cores e estilos de botões do WhatsApp (`#25d366` sólido em todas as seções).
 - [x] Chamada discreta do Google Maps nos cards de depoimentos (ícone externo `↗` ao lado das estrelas).
-- [x] Enxugamento de ~50% dos textos do site para leitura rápida mobile (30+).
+- [x] Enxugamento de textos para leitura rápida mobile (público 30+).
 - [x] Correção e ampliação do Favicon (letra "F" agora ocupa 95% da aba).
 - [x] Homologação dos 10 serviços oficiais do DETRAN-BA com a equipe.
