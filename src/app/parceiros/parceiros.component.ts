@@ -30,33 +30,31 @@ export class ParceirosComponent {
     {
       id: 'oeste-vistoria',
       nome: 'Oeste Vistorias Automotivas',
-      categoria: 'ECV • Vistoria Veicular Credenciada DETRAN-BA',
+      categoria: 'ECV • Vistoria Credenciada Detran-BA',
       cidade: 'Barreiras / BA',
       destaque: true,
-      endereco: 'Rua Sergipe, nº 97 — Morada Nobre (ao lado do Corpo de Bombeiros), Barreiras - BA, CEP: 47810-053',
+      endereco: 'Rua Sergipe, 97 — Morada Nobre (ao lado dos Bombeiros), Barreiras - BA',
       mapsUrl: 'https://maps.app.goo.gl/qZMDx2KS4B5U3e5E6',
-      descricao: 'Empresa Credenciada de Vistoria (ECV) oficial junto ao DETRAN-BA. Parceira estratégica do Felisberto Despachante na emissão rápida de laudos para transferência de veículos, vistorias prévias e laudos cautelares, garantindo segurança na compra e venda.',
+      descricao: 'Empresa Credenciada de Vistoria oficial pelo Detran-BA. Laudos de transferência, 2ª via de CRV/DUT e cautelar integrados diretamente ao Felisberto Despachante.',
       beneficios: [
-        'Emissão de laudo oficial rápido e integrado ao sistema do DETRAN-BA',
-        'Conferência rigorosa de numeração de motor, chassi e itens de segurança',
-        'Comunicação direta com o Felisberto Despachante para protocolar seu processo no mesmo dia',
-        'Localização de fácil acesso em Barreiras (ao lado dos Bombeiros)'
+        'Laudo oficial aceito na hora no Detran-BA',
+        'Protocolamento no mesmo dia com o Felisberto',
+        'Fácil acesso ao lado do Corpo de Bombeiros'
       ],
       icone: '🔍'
     },
     {
       id: 'concessionarias-lojas',
-      nome: 'Lojas de Veículos & Concessionárias Conveniadas',
+      nome: 'Concessionárias & Revendedoras',
       categoria: 'Venda de Novos e Seminovos',
-      cidade: 'Barreiras & Luís Eduardo Magalhães',
+      cidade: 'Barreiras & LEM',
       destaque: false,
-      endereco: 'Atendimento corporativo in loco em toda a região oeste da Bahia',
+      endereco: 'Atendimento corporativo em toda a região oeste da Bahia',
       mapsUrl: 'https://maps.app.goo.gl/PBFUH54SkaZUMf7bA',
-      descricao: 'Parcerias com revendedoras e concessionárias para realização de 1º emplacamento Mercosul, transferências de propriedade em lote e regularização de estoques com faturamento direto e prazos diferenciados.',
+      descricao: 'Emplacamento Mercosul e transferência de estoques com faturamento direto e prazos especiais para lojistas.',
       beneficios: [
-        'Atendimento PJ dedicado com emissão ágil de DUT / ATPV-e',
-        'Coleta e entrega de documentos diretamente na concessionária',
-        'Condições especiais para lojistas parceiros'
+        'Emissão ágil de ATPV-e e documentos em lote',
+        'Retirada e entrega de processos na loja'
       ],
       icone: '🚗'
     },
@@ -64,30 +62,29 @@ export class ParceirosComponent {
       id: 'frotistas-agro',
       nome: 'Empresas do Agro & Transportadoras',
       categoria: 'Frotas Corporativas & Agronegócio',
-      cidade: 'Luís Eduardo Magalhães & Região Oeste',
+      cidade: 'LEM & Barreiras',
       destaque: false,
       endereco: 'Polo Agroindustrial de Luís Eduardo Magalhães e Barreiras',
       mapsUrl: 'https://maps.app.goo.gl/ohhGB2GUCxMAGtXX7',
-      descricao: 'Gestão documental especializada para produtores rurais, frotas pesadas, carretas, bitrens e maquinários agrícolas. Renovação de licenciamentos em bloco e desembaraço de débitos estaduais.',
+      descricao: 'Gestão documental de frotas pesadas, carretas, bitrens e maquinário agrícola sem burocracia.',
       beneficios: [
-        'Calendário preventivo de renovação de frotas sem risco de apreensão',
-        'Atendimento prioritário em LEM para o polo do agronegócio',
-        'Relatórios de débitos e taxas consolidadas para o financeiro da empresa'
+        'Renovação de licenciamento em bloco sem filas',
+        'Relatórios consolidados de taxas e tributos'
       ],
       icone: '🚛'
     },
     {
       id: 'autoescolas-cfc',
-      nome: 'Autoescolas & Centros de Formação de Condutores (CFC)',
-      categoria: 'Habilitação & Formação de Condutores',
+      nome: 'Autoescolas & CFCs',
+      categoria: 'Habilitação & Condutores',
       cidade: 'Barreiras & LEM',
       destaque: false,
-      endereco: 'Centros conveniados em Barreiras e Luís Eduardo Magalhães',
+      endereco: 'Centros conveniados da região oeste',
       mapsUrl: 'https://maps.app.goo.gl/PBFUH54SkaZUMf7bA',
-      descricao: 'Integração em procedimentos de CNH, suporte a alunos para certidões e regularizações veiculares, e orientação para liberação de prontuários e adição de categoria.',
+      descricao: 'Suporte em procedimentos de CNH, certidões e regularizações de veículos para instrutores e alunos.',
       beneficios: [
-        'Agilidade no acompanhamento de emissão de CNH definitiva',
-        'Orientação técnica sobre pontuação e recursos no DETRAN-BA'
+        'Acompanhamento ágil de processos e emissões',
+        'Orientação técnica em pendências e recursos'
       ],
       icone: '🪪'
     }
