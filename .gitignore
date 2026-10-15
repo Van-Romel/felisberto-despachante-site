@@ -43,3 +43,6 @@ Thumbs.db
 
 # Server config files
 /server-config
+
+# Local development & internal backlogs
+.dev-local/
