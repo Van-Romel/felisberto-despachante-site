@@ -1,6 +1,13 @@
 <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
 	 width="100%" viewBox="0 0 200 200">
-<path fill="#DC353B" opacity="1.000000" stroke="none"
+<defs>
+  <linearGradient id="felisbertoBrandGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#FF9900" />
+    <stop offset="50%" stop-color="#FF5500" />
+    <stop offset="100%" stop-color="#E52E1B" />
+  </linearGradient>
+</defs>
+<path fill="url(#felisbertoBrandGradient)" opacity="1.000000" stroke="none"
 	d="
 M140.294830,15.410013
 	C142.701645,15.048074 144.682953,14.789398 146.663956,14.528481
