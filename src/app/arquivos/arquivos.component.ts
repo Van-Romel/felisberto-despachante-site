@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { LinksService } from '../services/links.service';
 
 export interface DocumentoDownload {
@@ -27,6 +28,9 @@ export interface LinkUtil {
   styleUrls: ['./arquivos.component.scss']
 })
 export class ArquivosComponent {
+  selectedDoc: DocumentoDownload | null = null;
+  safePdfUrl: SafeResourceUrl | null = null;
+  isPreviewOpen = false;
   documentos: DocumentoDownload[] = [
     {
       titulo: 'Procuração Pessoa Física (PF)',
@@ -110,9 +114,82 @@ export class ArquivosComponent {
     }
   ];
 
-  constructor(public linksService: LinksService) {}
+  constructor(
+    public linksService: LinksService,
+    private sanitizer: DomSanitizer
+  ) {}
+
+  abrirPreview(doc: DocumentoDownload, event?: Event): void {
+    if (event) {
+      event.preventDefault();
+    }
+    this.selectedDoc = doc;
+    if (doc.pdfUrl) {
+      this.safePdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(doc.pdfUrl);
+    } else {
+      this.safePdfUrl = null;
+    }
+    this.isPreviewOpen = true;
+    document.body.style.overflow = 'hidden';
+  }
+
+  fecharPreview(): void {
+    this.isPreviewOpen = false;
+    this.selectedDoc = null;
+    this.safePdfUrl = null;
+    document.body.style.overflow = '';
+  }
+
+  imprimirDocumento(): void {
+    if (!this.selectedDoc?.pdfUrl) return;
+    const printWin = window.open(this.selectedDoc.pdfUrl, '_blank');
+    if (printWin) {
+      printWin.focus();
+    }
+  }
+
+  async compartilharDocumento(doc?: DocumentoDownload | null): Promise<void> {
+    const targetDoc = doc || this.selectedDoc;
+    if (!targetDoc) return;
+
+    const fullUrl = `https://www.felisbertodespachante.com.br/${targetDoc.pdfUrl || ''}`;
+    const shareText = `Olá! Segue o modelo oficial de *${targetDoc.titulo}* do Felisberto Despachante:\n📄 Acesse o documento aqui: ${fullUrl}`;
+
+    if (navigator.share && /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+      try {
+        await navigator.share({
+          title: targetDoc.titulo,
+          text: shareText,
+          url: fullUrl
+        });
+        return;
+      } catch (_) {
+        // Usuário cancelou ou navegador não completou o share nativo
+      }
+    }
+
+    const waUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
+    window.open(waUrl, '_blank', 'noopener,noreferrer');
+  }
+
+  baixarArquivo(url?: string, event?: Event): void {
+    if (!url) return;
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = url.split('/').pop() || 'documento';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }
 
   openWhatsappAjuda(): void {
     this.linksService.openWhatsApp('geral', 'Olá! Preciso de ajuda para preencher um documento veicular.');
+  }
+
+  @HostListener('document:keydown.escape')
+  onEscape(): void {
+    if (this.isPreviewOpen) {
+      this.fecharPreview();
+    }
   }
 }
