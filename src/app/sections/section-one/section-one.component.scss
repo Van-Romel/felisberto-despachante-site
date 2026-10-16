@@ -185,14 +185,14 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    background: #25d366;
+    background: #075e54;
     color: #ffffff;
     border: none;
     border-radius: var(--radius-full, 9999px);
     padding: 10px 18px;
     font-size: 0.88rem;
     font-weight: 700;
-    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+    box-shadow: 0 4px 14px rgba(7, 94, 84, 0.35);
     transition: all 0.2s ease;
     cursor: pointer;
 
@@ -204,9 +204,9 @@
     }
 
     &:hover {
-      background: #20ba5a;
+      background: #054c44;
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+      box-shadow: 0 6px 20px rgba(7, 94, 84, 0.45);
     }
   }
 }
