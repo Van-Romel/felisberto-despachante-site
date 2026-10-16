@@ -188,12 +188,12 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
   background: #075e54;
   color: #ffffff !important;
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 0.96rem;
+  font-size: 0.98rem;
   padding: 13px 26px;
   border-radius: var(--radius-full);
   border: none;
@@ -205,8 +205,10 @@ img {
 
   svg {
     fill: #ffffff;
-    width: 20px;
-    height: 20px;
+    width: 26px !important;
+    height: 26px !important;
+    min-width: 26px;
+    min-height: 26px;
     flex-shrink: 0;
   }
 

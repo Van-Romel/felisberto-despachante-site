@@ -179,6 +179,11 @@
 
       svg {
         fill: #ffffff;
+        width: 26px !important;
+        height: 26px !important;
+        min-width: 26px;
+        min-height: 26px;
+        flex-shrink: 0;
       }
 
       &:hover {
