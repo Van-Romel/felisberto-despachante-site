@@ -4,12 +4,12 @@
     <div class="units-left">
       <div class="unit-item">
         <span class="unit-city-title">📍 <a routerLink="/unidades/barreiras" class="unit-city-link">Barreiras</a></span>
-        <a (click)="openWhatsApp('barreiras')" class="unit-phone-link">(77) 99996-5588</a>
+        <a [href]="'https://wa.me/' + linksService.numeroBarreiras" target="_blank" rel="noopener noreferrer" (click)="openWhatsApp('barreiras'); $event.preventDefault()" class="unit-phone-link">(77) 99996-5588</a>
       </div>
       <span class="unit-divider">|</span>
       <div class="unit-item">
         <span class="unit-city-title">📍 <a routerLink="/unidades/lem" class="unit-city-link">LEM</a></span>
-        <a (click)="openWhatsApp('lem')" class="unit-phone-link">(77) 99800-9877</a>
+        <a [href]="'https://wa.me/' + linksService.numeroLEM" target="_blank" rel="noopener noreferrer" (click)="openWhatsApp('lem'); $event.preventDefault()" class="unit-phone-link">(77) 99800-9877</a>
       </div>
     </div>
     <div class="units-right">
@@ -35,13 +35,13 @@
     <nav class="nav-desktop">
       <ul class="nav-links">
         <li>
-          <a (click)="goToSection('licenciamento')" class="nav-item">Licenciamento</a>
+          <a routerLink="/home" fragment="licenciamento" (click)="goToSection('licenciamento')" class="nav-item">Licenciamento</a>
         </li>
         <li>
-          <a (click)="goToSection('nossos-servicos')" class="nav-item">Serviços</a>
+          <a routerLink="/home" fragment="nossos-servicos" (click)="goToSection('nossos-servicos')" class="nav-item">Serviços</a>
         </li>
         <li>
-          <a (click)="goToSection('sobre-nos')" class="nav-item">Sobre Nós</a>
+          <a routerLink="/home" fragment="sobre-nos" (click)="goToSection('sobre-nos')" class="nav-item">Sobre Nós</a>
         </li>
         <li>
           <a routerLink="/arquivos" routerLinkActive="active" class="nav-item">Documentos & Links</a>
@@ -83,13 +83,13 @@
       </div>
       <ul class="mobile-nav-links">
         <li>
-          <a (click)="goToSection('licenciamento')">Calendário de Licenciamento</a>
+          <a routerLink="/home" fragment="licenciamento" (click)="goToSection('licenciamento')">Calendário de Licenciamento</a>
         </li>
         <li>
-          <a (click)="goToSection('nossos-servicos')">Nossos Serviços</a>
+          <a routerLink="/home" fragment="nossos-servicos" (click)="goToSection('nossos-servicos')">Nossos Serviços</a>
         </li>
         <li>
-          <a (click)="goToSection('sobre-nos')">Sobre o Felisberto</a>
+          <a routerLink="/home" fragment="sobre-nos" (click)="goToSection('sobre-nos')">Sobre o Felisberto</a>
         </li>
         <li>
           <a routerLink="/arquivos" (click)="closeMobileMenu()">Documentos & Links</a>

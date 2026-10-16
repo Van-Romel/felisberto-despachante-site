@@ -26,9 +26,9 @@
       <div class="footer-col">
         <h4 class="col-title">Navegação</h4>
         <ul class="footer-links">
-          <li><a (click)="scrollTo('licenciamento')">Calendário de Licenciamento</a></li>
-          <li><a (click)="scrollTo('nossos-servicos')">Nossos Serviços</a></li>
-          <li><a (click)="scrollTo('sobre-nos')">Sobre o Felisberto</a></li>
+          <li><a routerLink="/home" fragment="licenciamento" (click)="scrollTo('licenciamento')">Calendário de Licenciamento</a></li>
+          <li><a routerLink="/home" fragment="nossos-servicos" (click)="scrollTo('nossos-servicos')">Nossos Serviços</a></li>
+          <li><a routerLink="/home" fragment="sobre-nos" (click)="scrollTo('sobre-nos')">Sobre o Felisberto</a></li>
           <li><a routerLink="/arquivos">Central de Documentos & Links</a></li>
           <li><a routerLink="/parceiros">Empresas Parceiras & Vistorias</a></li>
         </ul>
@@ -38,13 +38,13 @@
       <div class="footer-col">
         <h4 class="col-title">Serviços Mais Buscados</h4>
         <ul class="footer-links">
-          <li><a (click)="scrollTo('nossos-servicos')">Transferência de Veículo</a></li>
-          <li><a (click)="scrollTo('nossos-servicos')">1º Emplacamento Mercosul</a></li>
-          <li><a (click)="scrollTo('nossos-servicos')">2ª Via de DUT / CRV</a></li>
-          <li><a (click)="scrollTo('nossos-servicos')">2ª Via de Placa</a></li>
-          <li><a (click)="scrollTo('nossos-servicos')">Comunicado de Venda</a></li>
-          <li><a (click)="scrollTo('nossos-servicos')">Intenção de Venda (ATPV-e)</a></li>
-          <li><a (click)="scrollTo('nossos-servicos')">Parcelamento de Débitos e IPVA</a></li>
+          <li><a routerLink="/home" fragment="nossos-servicos" (click)="scrollTo('nossos-servicos')">Transferência de Veículo</a></li>
+          <li><a routerLink="/home" fragment="nossos-servicos" (click)="scrollTo('nossos-servicos')">1º Emplacamento Mercosul</a></li>
+          <li><a routerLink="/home" fragment="nossos-servicos" (click)="scrollTo('nossos-servicos')">2ª Via de DUT / CRV</a></li>
+          <li><a routerLink="/home" fragment="nossos-servicos" (click)="scrollTo('nossos-servicos')">2ª Via de Placa</a></li>
+          <li><a routerLink="/home" fragment="nossos-servicos" (click)="scrollTo('nossos-servicos')">Comunicado de Venda</a></li>
+          <li><a routerLink="/home" fragment="nossos-servicos" (click)="scrollTo('nossos-servicos')">Intenção de Venda (ATPV-e)</a></li>
+          <li><a routerLink="/home" fragment="nossos-servicos" (click)="scrollTo('nossos-servicos')">Parcelamento de Débitos e IPVA</a></li>
         </ul>
       </div>
 
@@ -56,9 +56,9 @@
           <div class="unit-box">
             <div class="unit-box-top">
               <a routerLink="/unidades/barreiras" class="unit-title-link">📍 Unidade Barreiras / BA</a>
-              <a href="https://maps.app.goo.gl/PBFUH54SkaZUMf7bA" target="_blank" rel="noopener noreferrer" class="unit-maps-link">Maps ↗</a>
+              <a href="https://maps.app.goo.gl/PBFUH54SkaZUMf7bA" target="_blank" rel="noopener noreferrer" class="unit-maps-link" aria-label="Ver endereço de Barreiras no Google Maps">Maps ↗</a>
             </div>
-            <a (click)="linksService.openWhatsApp('barreiras')" class="unit-phone">
+            <a [href]="'https://wa.me/' + linksService.numeroBarreiras" target="_blank" rel="noopener noreferrer" (click)="linksService.openWhatsApp('barreiras'); $event.preventDefault()" class="unit-phone">
               (77) 99996-5588
             </a>
           </div>
@@ -67,9 +67,9 @@
           <div class="unit-box">
             <div class="unit-box-top">
               <a routerLink="/unidades/lem" class="unit-title-link">📍 Unidade Luís Eduardo Magalhães</a>
-              <a href="https://maps.app.goo.gl/ohhGB2GUCxMAGtXX7" target="_blank" rel="noopener noreferrer" class="unit-maps-link">Maps ↗</a>
+              <a href="https://maps.app.goo.gl/ohhGB2GUCxMAGtXX7" target="_blank" rel="noopener noreferrer" class="unit-maps-link" aria-label="Ver endereço de Luís Eduardo Magalhães no Google Maps">Maps ↗</a>
             </div>
-            <a (click)="linksService.openWhatsApp('lem')" class="unit-phone">
+            <a [href]="'https://wa.me/' + linksService.numeroLEM" target="_blank" rel="noopener noreferrer" (click)="linksService.openWhatsApp('lem'); $event.preventDefault()" class="unit-phone">
               (77) 99800-9877
             </a>
           </div>
@@ -77,7 +77,7 @@
           <!-- Atendimento Geral -->
           <div class="unit-box">
             <span class="unit-title-static">📱 Atendimento Geral / Consultoria</span>
-            <a (click)="linksService.openWhatsApp('geral')" class="unit-phone">
+            <a [href]="'https://wa.me/' + linksService.numeroGeral" target="_blank" rel="noopener noreferrer" (click)="linksService.openWhatsApp('geral'); $event.preventDefault()" class="unit-phone">
               (77) 99937-8918
             </a>
           </div>
