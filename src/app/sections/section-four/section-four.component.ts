@@ -24,27 +24,35 @@ export class SectionFourComponent {
 
   depoimentos: DepoimentoItem[] = [
     {
-      autor: 'Lucas M.',
+      autor: 'Reginaldo Moreira',
       local: 'Barreiras / BA',
-      texto: 'Atendimento impecável! Transferência do veículo concluída com rapidez e sem complicação.',
+      texto: 'O atendimento foi maravilhoso muito bom',
       avaliacao: 5,
-      servico: 'Transferência de Veículo',
+      servico: 'Avaliação no Google Maps',
       mapsUrl: 'https://maps.app.goo.gl/PBFUH54SkaZUMf7bA'
     },
     {
-      autor: 'Carla S.',
-      local: 'Luís Eduardo Magalhães / BA',
-      texto: 'Resolveram o parcelamento do IPVA e o documento digital no mesmo dia. Muito prático!',
+      autor: 'Kauérique Torres',
+      local: 'Barreiras / BA',
+      texto: 'Atendimento excelente, melhor de barreiras',
       avaliacao: 5,
-      servico: 'Licenciamento & Débitos',
-      mapsUrl: 'https://maps.app.goo.gl/ohhGB2GUCxMAGtXX7'
+      servico: 'Avaliação no Google Maps',
+      mapsUrl: 'https://maps.app.goo.gl/PBFUH54SkaZUMf7bA'
     },
     {
-      autor: 'Marcos A.',
-      local: 'Frotista / Região Oeste',
-      texto: 'Cuidam dos emplacamentos da nossa frota com total pontualidade e transparência.',
+      autor: 'Custa Todinho',
+      local: 'Barreiras / BA',
+      texto: 'Gostei muito, trabalho impecável, rápido e eficiente. Atendimento excelente...super indico, sempre.',
       avaliacao: 5,
-      servico: '1º Emplacamento & Frotas',
+      servico: 'Local Guide no Google',
+      mapsUrl: 'https://maps.app.goo.gl/PBFUH54SkaZUMf7bA'
+    },
+    {
+      autor: 'Raiane Souza',
+      local: 'Barreiras / BA',
+      texto: 'Amei o atendimento e super recomendo maravilhoso todos os funcionários só agradecer super rápido no atendimento 100% excelente ...',
+      avaliacao: 5,
+      servico: 'Avaliação no Google Maps',
       mapsUrl: 'https://maps.app.goo.gl/PBFUH54SkaZUMf7bA'
     }
   ];

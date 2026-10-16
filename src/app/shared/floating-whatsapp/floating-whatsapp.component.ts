@@ -107,7 +107,7 @@ import { LinksService, UnidadeDespachante } from '../../services/links.service';
                 <span class="unit-tag">Matriz</span>
               </div>
               <span class="unit-phone">(77) 99996-5588</span>
-              <span class="unit-desc">Rua Barão de Cotegipe, 472 • Centro</span>
+              <span class="unit-desc">Rua Hermenegildo Fé • Centro</span>
             </div>
             <div class="unit-arrow">→</div>
           </button>
