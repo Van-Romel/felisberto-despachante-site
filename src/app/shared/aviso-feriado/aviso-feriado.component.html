@@ -1,0 +1,55 @@
+<aside
+  *ngFor="let aviso of avisosAtivos"
+  class="aviso-feriado-banner"
+  role="alert"
+  aria-live="polite"
+>
+  <div class="container aviso-feriado-content">
+    <div class="aviso-badge-row">
+      <span class="pulse-dot" aria-hidden="true"></span>
+      <span class="badge-alerta">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+        </svg>
+        COMUNICADO DE ATENDIMENTO
+      </span>
+      <span class="unidade-tag" *ngIf="aviso.unidadeId !== 'todas'">
+        Unidade: {{ aviso.unidadeId === 'barreiras' ? 'Barreiras' : 'Luís Eduardo Magalhães' }}
+      </span>
+    </div>
+
+    <div class="aviso-text-area">
+      <h4 class="aviso-titulo">
+        {{ aviso.titulo }}
+        <span class="periodo-badge">
+          📅 {{ formatarData(aviso.dataInicioRecesso) }} até {{ formatarData(aviso.dataFimRecesso) }}
+        </span>
+      </h4>
+      <p class="aviso-mensagem">{{ aviso.mensagem }}</p>
+    </div>
+
+    <div class="aviso-actions">
+      <button
+        type="button"
+        class="btn-plantao"
+        (click)="abrirWhatsAppPlantao()"
+        aria-label="Falar com o plantão pelo WhatsApp"
+      >
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.077-2.029-.475-1.624-.675-2.67-2.327-2.75-2.435-.081-.107-.655-.873-.655-1.664 0-.791.413-1.18.561-1.341.147-.161.32-.201.427-.201.107 0 .213.002.306.007.098.006.23-.037.36.275.133.32.454 1.108.494 1.189.04.081.067.176.013.283-.053.107-.08.174-.16.267-.08.093-.169.208-.242.279-.081.08-.166.167-.071.33.095.163.42 1.002 1.258 1.488.423.246.778.322.94.39.162.067.257.058.354-.053.097-.11.417-.487.528-.654.111-.167.222-.139.375-.083.153.056.97.458 1.137.541.167.083.278.125.319.194.041.07.041.403-.103.808z"/>
+        </svg>
+        <span>Plantão WhatsApp</span>
+      </button>
+
+      <button
+        type="button"
+        class="btn-fechar-aviso"
+        (click)="fecharAviso(aviso.id)"
+        title="Dispensar aviso"
+        aria-label="Dispensar aviso de recesso"
+      >
+        ✕
+      </button>
+    </div>
+  </div>
+</aside>

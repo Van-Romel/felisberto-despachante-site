@@ -1,12 +1,44 @@
-main {
-  min-height: calc(100vh - 160px);
-  width: 100%;
-  max-width: 100%;
-  overflow-x: clip;
+.site-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  main {
+    flex: 1 0 auto;
+    min-height: calc(100vh - 160px);
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  // --- TEMA NATALINO ---
+  &.theme-natal {
+    ::ng-deep .badge-since::before {
+      content: '🎄 ';
+    }
+
+    ::ng-deep .badge-pill {
+      border-color: rgba(220, 38, 38, 0.4);
+      background: rgba(220, 38, 38, 0.12);
+    }
+  }
+
+  // --- TEMA ANO NOVO ---
+  &.theme-ano_novo {
+    ::ng-deep .badge-since::before {
+      content: '✨ ';
+    }
+
+    ::ng-deep .badge-pill {
+      border-color: rgba(245, 158, 11, 0.4);
+      background: rgba(245, 158, 11, 0.12);
+      color: #d97706;
+    }
+  }
 }
 
 @supports not (overflow-x: clip) {
-  main {
+  .site-wrapper main {
     overflow-x: hidden;
   }
 }

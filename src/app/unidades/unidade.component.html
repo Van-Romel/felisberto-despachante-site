@@ -91,6 +91,31 @@
             </ul>
           </div>
 
+          <!-- Fotos Reais do Escritório (FELISBERTO-006) -->
+          <div class="office-photos-container" *ngIf="unidade.fotoFachada || unidade.fotoRecepcao">
+            <h3>Estrutura Física do Escritório</h3>
+            <div class="office-photos-grid">
+              <div class="photo-card" *ngIf="unidade.fotoFachada">
+                <img
+                  [src]="unidade.fotoFachada"
+                  [alt]="'Fachada do escritório Felisberto em ' + unidade.nomeCidade"
+                  loading="lazy"
+                  (error)="onImgError($event)"
+                />
+                <span class="photo-badge">🏢 Fachada Oficial</span>
+              </div>
+              <div class="photo-card" *ngIf="unidade.fotoRecepcao">
+                <img
+                  [src]="unidade.fotoRecepcao"
+                  [alt]="'Recepção e atendimento em ' + unidade.nomeCidade"
+                  loading="lazy"
+                  (error)="onImgError($event)"
+                />
+                <span class="photo-badge">🤝 Recepção & Atendimento</span>
+              </div>
+            </div>
+          </div>
+
           <!-- Alternar para a outra unidade -->
           <div class="switch-unit-banner">
             <div>

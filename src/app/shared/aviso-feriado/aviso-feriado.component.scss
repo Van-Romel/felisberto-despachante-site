@@ -1,0 +1,181 @@
+.aviso-feriado-banner {
+  background: linear-gradient(90deg, #161f37 0%, #1f1220 50%, #2a1114 100%);
+  border-bottom: 2px solid #c51e26;
+  color: #f8fafc;
+  padding: 12px 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  position: relative;
+  z-index: 998;
+  animation: slideDown 0.35s ease-out;
+
+  .aviso-feriado-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+
+    @media (max-width: 900px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+  }
+
+  .aviso-badge-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ff8c00;
+      box-shadow: 0 0 8px #ff8c00;
+      animation: pulseAlert 1.6s infinite ease-in-out;
+    }
+
+    .badge-alerta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      background: rgba(197, 30, 38, 0.25);
+      border: 1px solid rgba(197, 30, 38, 0.6);
+      border-radius: 9999px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: #ff999f;
+      text-transform: uppercase;
+
+      svg {
+        fill: #ff6b72;
+      }
+    }
+
+    .unidade-tag {
+      font-size: 0.78rem;
+      color: #94a3b8;
+      background: rgba(255, 255, 255, 0.07);
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+  }
+
+  .aviso-text-area {
+    flex: 1 1 auto;
+    min-width: 260px;
+
+    .aviso-titulo {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin: 0 0 3px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+
+      .periodo-badge {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #ffc107;
+        background: rgba(245, 158, 11, 0.15);
+        border: 1px solid rgba(245, 158, 11, 0.35);
+        padding: 2px 8px;
+        border-radius: 4px;
+      }
+    }
+
+    .aviso-mensagem {
+      font-size: 0.86rem;
+      color: #cbd5e1;
+      margin: 0;
+      line-height: 1.45;
+    }
+  }
+
+  .aviso-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+
+    @media (max-width: 900px) {
+      width: 100%;
+      justify-content: space-between;
+      margin-top: 4px;
+    }
+
+    .btn-plantao {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #25d366;
+      color: #063920;
+      font-size: 0.84rem;
+      font-weight: 700;
+      padding: 7px 15px;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(37, 211, 102, 0.25);
+      border: none;
+      cursor: pointer;
+
+      svg {
+        fill: #063920;
+      }
+
+      &:hover {
+        background: #20ba5a;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35);
+      }
+    }
+
+    .btn-fechar-aviso {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #94a3b8;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.22);
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseAlert {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.3);
+  }
+}

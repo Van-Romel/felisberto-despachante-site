@@ -1,0 +1,491 @@
+<div class="admin-page-wrapper">
+  <!-- Toast Notificação -->
+  <div class="admin-toast" *ngIf="toastMensagem" role="status">
+    {{ toastMensagem }}
+  </div>
+
+  <!-- Tela de Login / Bloqueio por PIN -->
+  <div class="admin-login-overlay" *ngIf="!isAuthenticated">
+    <div class="admin-login-card">
+      <div class="admin-login-header">
+        <img src="assets/F-logo-simples.svg" alt="Felisberto Despachante" width="48" height="48">
+        <h2>Acesso Interno</h2>
+        <p>Painel de Gestão de Unidades e Avisos</p>
+      </div>
+
+      <form (ngSubmit)="fazerLogin()" class="admin-login-form">
+        <label for="pin-input">Digite o PIN de Segurança:</label>
+        <input
+          id="pin-input"
+          type="password"
+          maxlength="8"
+          placeholder="PIN padrão (1234)"
+          [(ngModel)]="pinInput"
+          name="pin"
+          autofocus
+        />
+
+        <div class="pin-error" *ngIf="pinError">
+          ⚠️ PIN incorreto. Tente novamente.
+        </div>
+
+        <button type="submit" class="btn-primary w-100">
+          Entrar no Painel
+        </button>
+
+        <a routerLink="/home" class="btn-back-home">
+          ← Voltar para o Site Oficial
+        </a>
+      </form>
+    </div>
+  </div>
+
+  <!-- Conteúdo Autenticado -->
+  <div class="admin-dashboard container" *ngIf="isAuthenticated">
+    <!-- Topbar do Admin -->
+    <header class="admin-topbar">
+      <div class="admin-title-area">
+        <div class="admin-badge">GESTÃO INTERNA</div>
+        <h1>Painel do Site Felisberto</h1>
+        <p>Configurações de horários, comunicados de recesso e campanhas sazonais</p>
+      </div>
+
+      <div class="admin-user-actions">
+        <a routerLink="/home" target="_blank" class="btn-preview-site">
+          Ver Site ao Vivo ↗
+        </a>
+        <button type="button" class="btn-logout" (click)="fazerLogout()">
+          Sair
+        </button>
+      </div>
+    </header>
+
+    <!-- Barra de Navegação por Abas -->
+    <nav class="admin-nav-tabs" aria-label="Navegação administrativa">
+      <button
+        type="button"
+        class="tab-btn"
+        [class.active]="activeTab === 'unidades'"
+        (click)="selecionarTab('unidades')"
+      >
+        🏢 Unidades & Horários
+      </button>
+
+      <button
+        type="button"
+        class="tab-btn"
+        [class.active]="activeTab === 'feriados'"
+        (click)="selecionarTab('feriados')"
+      >
+        📅 Avisos de Feriados (10 Dias)
+      </button>
+
+      <button
+        type="button"
+        class="tab-btn"
+        [class.active]="activeTab === 'temas'"
+        (click)="selecionarTab('temas')"
+      >
+        🎨 Design Sazonal (Natal / Ano Novo)
+      </button>
+
+      <button
+        type="button"
+        class="tab-btn"
+        [class.active]="activeTab === 'backup'"
+        (click)="selecionarTab('backup')"
+      >
+        💾 Backup & Exportação JSON
+      </button>
+    </nav>
+
+    <!-- ABA 1: UNIDADES & HORÁRIOS -->
+    <section class="admin-tab-content" *ngIf="activeTab === 'unidades'">
+      <div class="card-admin-box">
+        <div class="unidade-selector-row">
+          <label>Selecione a Unidade para editar:</label>
+          <div class="btn-group-toggle">
+            <button
+              type="button"
+              class="btn-toggle"
+              [class.active]="selectedUnidadeId === 'barreiras'"
+              (click)="trocarUnidade('barreiras')"
+            >
+              📍 Barreiras (Matriz)
+            </button>
+            <button
+              type="button"
+              class="btn-toggle"
+              [class.active]="selectedUnidadeId === 'lem'"
+              (click)="trocarUnidade('lem')"
+            >
+              📍 Luís Eduardo Magalhães (Filial)
+            </button>
+          </div>
+        </div>
+
+        <form (ngSubmit)="salvarUnidade()" *ngIf="unidadeEdit" class="admin-form-grid">
+          <div class="form-group span-2">
+            <label>Nome / Título:</label>
+            <input type="text" [(ngModel)]="unidadeEdit.nomeCidade" name="nomeCidade" required />
+          </div>
+
+          <div class="form-group span-2">
+            <label>Subtítulo de Atendimento:</label>
+            <input type="text" [(ngModel)]="unidadeEdit.subtitulo" name="subtitulo" />
+          </div>
+
+          <div class="form-group span-2">
+            <label>🕒 Horário de Atendimento Oficial:</label>
+            <input
+              type="text"
+              [(ngModel)]="unidadeEdit.horario"
+              name="horario"
+              placeholder="Ex: Segunda a Sexta: 08:00 às 18:00"
+              required
+            />
+            <small class="field-hint">Este texto é exibido com destaque nos cards de contato e rodapé.</small>
+          </div>
+
+          <div class="form-group">
+            <label>WhatsApp Direto (Formatado):</label>
+            <input type="text" [(ngModel)]="unidadeEdit.whatsapp" name="whatsapp" placeholder="(77) 99999-9999" />
+          </div>
+
+          <div class="form-group">
+            <label>WhatsApp Numérico (wa.me):</label>
+            <input type="text" [(ngModel)]="unidadeEdit.whatsappRaw" name="whatsappRaw" placeholder="5577999999999" />
+          </div>
+
+          <div class="form-group">
+            <label>Telefone Fixo (Opcional):</label>
+            <input type="text" [(ngModel)]="unidadeEdit.telefoneFixo" name="telefoneFixo" placeholder="(77) 3612-5916" />
+          </div>
+
+          <div class="form-group">
+            <label>Link do Google Maps:</label>
+            <input type="text" [(ngModel)]="unidadeEdit.mapsUrl" name="mapsUrl" placeholder="https://maps.app.goo.gl/..." />
+          </div>
+
+          <div class="form-group">
+            <label>Endereço:</label>
+            <input type="text" [(ngModel)]="unidadeEdit.endereco" name="endereco" />
+          </div>
+
+          <div class="form-group">
+            <label>Bairro, Cidade e CEP:</label>
+            <input type="text" [(ngModel)]="unidadeEdit.bairroCidade" name="bairroCidade" />
+          </div>
+
+          <div class="form-group span-2">
+            <label>Ponto de Referência:</label>
+            <input type="text" [(ngModel)]="unidadeEdit.referencia" name="referencia" />
+          </div>
+
+          <div class="form-group span-2">
+            <label>Descrição do Escritório:</label>
+            <textarea rows="3" [(ngModel)]="unidadeEdit.descricao" name="descricao"></textarea>
+          </div>
+
+          <!-- Fotos Reais do Escritório (FELISBERTO-006) -->
+          <div class="form-divider span-2">
+            <h3>📸 Fotos Reais do Escritório Físico (FELISBERTO-006)</h3>
+            <p>Insira os caminhos ou URLs das fotos reais da fachada e do ambiente de atendimento interno.</p>
+          </div>
+
+          <div class="form-group">
+            <label>Foto da Fachada (Caminho ou URL):</label>
+            <input
+              type="text"
+              [(ngModel)]="unidadeEdit.fotoFachada"
+              name="fotoFachada"
+              placeholder="assets/img/unidades/barreiras-fachada.jpg"
+            />
+            <small class="field-hint">Exibida no cartão da unidade e na página de localização.</small>
+          </div>
+
+          <div class="form-group">
+            <label>Foto da Recepção / Atendimento:</label>
+            <input
+              type="text"
+              [(ngModel)]="unidadeEdit.fotoRecepcao"
+              name="fotoRecepcao"
+              placeholder="assets/img/unidades/barreiras-recepcao.jpg"
+            />
+            <small class="field-hint">Exibida na galeria de credibilidade do escritório.</small>
+          </div>
+
+          <div class="form-actions span-2">
+            <button type="submit" class="btn-primary">
+              💾 Salvar Alterações da Unidade
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ABA 2: AVISOS DE FERIADO & RECESSO -->
+    <section class="admin-tab-content" *ngIf="activeTab === 'feriados'">
+      <!-- Formulário de Criação / Edição -->
+      <div class="card-admin-box">
+        <div class="box-header-row">
+          <div>
+            <h2>{{ editandoFeriadoId ? 'Editar Comunicado de Feriado' : 'Novo Comunicado de Recesso / Feriado' }}</h2>
+            <p>O banner é ativado automaticamente no topo do site nos <strong>10 dias anteriores</strong> à data de recesso.</p>
+          </div>
+          <button
+            type="button"
+            class="btn-secondary"
+            *ngIf="editandoFeriadoId"
+            (click)="cancelarEdicaoFeriado()"
+          >
+            Cancelar Edição
+          </button>
+        </div>
+
+        <form (ngSubmit)="salvarFeriado()" class="admin-form-grid">
+          <div class="form-group span-2">
+            <label>Título do Comunicado:</label>
+            <input
+              type="text"
+              [(ngModel)]="novoFeriado.titulo"
+              name="f_titulo"
+              placeholder="Ex: Recesso de Fim de Ano ou Feriado da Proclamação"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Unidade Afetada:</label>
+            <select [(ngModel)]="novoFeriado.unidadeId" name="f_unidade">
+              <option value="todas">Todas as Unidades (Barreiras e LEM)</option>
+              <option value="barreiras">Apenas Barreiras</option>
+              <option value="lem">Apenas Luís Eduardo Magalhães</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Dias de Antecedência do Aviso (Gatilho Elegante):</label>
+            <input
+              type="number"
+              min="1"
+              max="30"
+              [(ngModel)]="novoFeriado.diasAntecedenciaAviso"
+              name="f_dias"
+              placeholder="10"
+              required
+            />
+            <small class="field-hint">Padrão: 10 dias antes da data de início.</small>
+          </div>
+
+          <div class="form-group">
+            <label>Início do Recesso (YYYY-MM-DD):</label>
+            <input
+              type="date"
+              [(ngModel)]="novoFeriado.dataInicioRecesso"
+              name="f_dataInicio"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Fim do Recesso (YYYY-MM-DD):</label>
+            <input
+              type="date"
+              [(ngModel)]="novoFeriado.dataFimRecesso"
+              name="f_dataFim"
+              required
+            />
+          </div>
+
+          <div class="form-group span-2">
+            <label>Mensagem Informativa aos Clientes:</label>
+            <textarea
+              rows="3"
+              [(ngModel)]="novoFeriado.mensagem"
+              name="f_mensagem"
+              placeholder="Informe os detalhes do recesso e o canal de emergência pelo WhatsApp..."
+              required
+            ></textarea>
+          </div>
+
+          <div class="form-group span-2 form-check-inline">
+            <label class="checkbox-container">
+              <input type="checkbox" [(ngModel)]="novoFeriado.ativo" name="f_ativo" />
+              <span>Manter este comunicado ativo no sistema</span>
+            </label>
+          </div>
+
+          <div class="form-actions span-2">
+            <button type="submit" class="btn-primary">
+              {{ editandoFeriadoId ? '💾 Atualizar Comunicado' : '➕ Salvar e Ativar Comunicado' }}
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Lista de Feriados Cadastrados -->
+      <div class="card-admin-box">
+        <h3>Comunicados Cadastrados</h3>
+        <p class="section-desc">Gerencie os recessos programados para o calendário da empresa.</p>
+
+        <div class="table-responsive">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Status Hoje</th>
+                <th>Título</th>
+                <th>Unidade</th>
+                <th>Período do Recesso</th>
+                <th>Antecedência</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let f of config.feriados">
+                <td>
+                  <span class="status-chip active" *ngIf="isAvisoAtivoHoje(f)">
+                    🔴 EXIBINDO NO SITE
+                  </span>
+                  <span class="status-chip scheduled" *ngIf="!isAvisoAtivoHoje(f) && f.ativo">
+                    ⏳ Programado
+                  </span>
+                  <span class="status-chip disabled" *ngIf="!f.ativo">
+                    ⏸️ Desativado
+                  </span>
+                </td>
+                <td>
+                  <strong>{{ f.titulo }}</strong>
+                  <div class="small-text">{{ f.mensagem }}</div>
+                </td>
+                <td>
+                  {{ f.unidadeId === 'todas' ? 'Todas' : (f.unidadeId === 'barreiras' ? 'Barreiras' : 'LEM') }}
+                </td>
+                <td>
+                  {{ f.dataInicioRecesso }} até {{ f.dataFimRecesso }}
+                </td>
+                <td>
+                  {{ f.diasAntecedenciaAviso }} dias antes
+                </td>
+                <td>
+                  <div class="table-actions">
+                    <button type="button" class="btn-sm btn-edit" (click)="editarFeriado(f)">
+                      Editar
+                    </button>
+                    <button type="button" class="btn-sm btn-toggle-status" (click)="toggleAtivoFeriado(f)">
+                      {{ f.ativo ? 'Pausar' : 'Ativar' }}
+                    </button>
+                    <button type="button" class="btn-sm btn-delete" (click)="excluirFeriado(f.id)">
+                      Excluir
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr *ngIf="config.feriados.length === 0">
+                <td colspan="6" class="empty-state">
+                  Nenhum aviso de feriado cadastrado. Use o formulário acima para criar um novo.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABA 3: TEMAS SAZONAIS -->
+    <section class="admin-tab-content" *ngIf="activeTab === 'temas'">
+      <div class="card-admin-box">
+        <h2>🎨 Triggers de Design Sazonal (FELISBERTO-008)</h2>
+        <p>Defina o visual comemorativo do site com transição suave baseada em datas de início e fim.</p>
+
+        <form (ngSubmit)="salvarTema()" class="admin-form-grid">
+          <div class="form-group span-2">
+            <label>Selecione o Tema:</label>
+            <select [(ngModel)]="temaEdit.tema" name="t_tema">
+              <option value="padrao">Padrão Oficial (Vermelho & Preto Sóbreo)</option>
+              <option value="natal">Festivo de Natal (Acentos Vermelhos e Dourados & Boas Festas)</option>
+              <option value="ano_novo">Próspero Ano Novo (Acentos Dourados & Renovação)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Data de Início da Campanha:</label>
+            <input type="date" [(ngModel)]="temaEdit.dataInicio" name="t_dataInicio" />
+          </div>
+
+          <div class="form-group">
+            <label>Data de Fim da Campanha:</label>
+            <input type="date" [(ngModel)]="temaEdit.dataFim" name="t_dataFim" />
+          </div>
+
+          <div class="form-group span-2">
+            <label class="checkbox-container">
+              <input type="checkbox" [(ngModel)]="temaEdit.forcarAtivo" name="t_forcar" />
+              <span><strong>Forçar ativação imediata (Modo de teste/pré-visualização)</strong> — ignora as datas acima</span>
+            </label>
+          </div>
+
+          <div class="form-group span-2">
+            <label>Mensagem de Destaque Sazonal:</label>
+            <input
+              type="text"
+              [(ngModel)]="temaEdit.mensagemBanner"
+              name="t_banner"
+              placeholder="Boas Festas! A equipe Felisberto Despachante deseja um Feliz Natal e Próspero Ano Novo."
+            />
+          </div>
+
+          <div class="form-actions span-2">
+            <button type="submit" class="btn-primary">
+              💾 Salvar Configurações de Tema
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ABA 4: BACKUP & EXPORTAÇÃO JSON -->
+    <section class="admin-tab-content" *ngIf="activeTab === 'backup'">
+      <div class="card-admin-box">
+        <h2>💾 Backup, Exportação e Deploy Estático</h2>
+        <p>
+          Como o site do Felisberto Despachante roda de forma 100% estática e ultra-rápida no Cloudflare Pages,
+          suas configurações são salvas instantaneamente no navegador. Você também pode exportar este JSON
+          para salvar como baseline permanente no código.
+        </p>
+
+        <div class="backup-grid">
+          <!-- Coluna Exportar -->
+          <div class="backup-col">
+            <h3>Exportar Configuração Atual (JSON)</h3>
+            <textarea readonly rows="12" class="json-code-box">{{ jsonExportText }}</textarea>
+            <div class="backup-actions">
+              <button type="button" class="btn-primary" (click)="copiarJson()">
+                📋 Copiar JSON
+              </button>
+              <button type="button" class="btn-secondary" (click)="restaurarPadroes()">
+                🔄 Restaurar Padrões de Fábrica
+              </button>
+            </div>
+          </div>
+
+          <!-- Coluna Importar -->
+          <div class="backup-col">
+            <h3>Importar Configuração (JSON)</h3>
+            <textarea
+              rows="12"
+              class="json-code-box"
+              placeholder="Cole aqui o JSON de configuração para importar..."
+              [(ngModel)]="jsonImportInput"
+            ></textarea>
+            <div class="backup-actions">
+              <button type="button" class="btn-primary" (click)="importarJson()">
+                📥 Importar e Aplicar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
