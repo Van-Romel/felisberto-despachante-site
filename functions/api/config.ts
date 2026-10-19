@@ -95,7 +95,8 @@ export const onRequestOptions: PagesFunction<Env> = async () => {
 
 export const onRequestGet: PagesFunction<Env> = async (context) => {
   try {
-    const kv = context.env.FELISBERTO_CONFIG || context.env.FELISBERTO_KV;
+    const env = (context.env || {}) as Record<string, any>;
+    const kv = env.FELISBERTO_CONFIG || env.FELISBERTO_KV || env.felisberto_config || env.felisberto_kv || env.KV;
     if (kv) {
       const stored = await kv.get("site_config", "json");
       if (stored) {
@@ -103,7 +104,7 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
           status: 200,
           headers: {
             ...CORS_HEADERS,
-            "Cache-Control": "public, max-age=60, s-maxage=300"
+            "Cache-Control": "no-cache, no-store, must-revalidate"
           }
         });
       }
@@ -117,16 +118,20 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
     status: 200,
     headers: {
       ...CORS_HEADERS,
-      "Cache-Control": "public, max-age=60, s-maxage=180"
+      "Cache-Control": "no-cache, no-store, must-revalidate"
     }
   });
 };
 
 export const onRequestPut: PagesFunction<Env> = async (context) => {
   try {
-    const kv = context.env.FELISBERTO_CONFIG || context.env.FELISBERTO_KV;
+    const env = (context.env || {}) as Record<string, any>;
+    const kv = env.FELISBERTO_CONFIG || env.FELISBERTO_KV || env.felisberto_config || env.felisberto_kv || env.KV;
     if (!kv) {
-      return new Response(JSON.stringify({ error: "Cloudflare KV binding não configurada no Pages." }), {
+      return new Response(JSON.stringify({ 
+        error: "Cloudflare KV binding não configurada no Pages.",
+        available_env_keys: Object.keys(env)
+      }), {
         status: 503,
         headers: CORS_HEADERS
       });
@@ -144,7 +149,10 @@ export const onRequestPut: PagesFunction<Env> = async (context) => {
 
     return new Response(JSON.stringify({ success: true, updated_at: new Date().toISOString() }), {
       status: 200,
-      headers: CORS_HEADERS
+      headers: {
+        ...CORS_HEADERS,
+        "Cache-Control": "no-cache, no-store, must-revalidate"
+      }
     });
   } catch (err: any) {
     return new Response(JSON.stringify({ error: err.message || "Erro interno ao atualizar configuração." }), {

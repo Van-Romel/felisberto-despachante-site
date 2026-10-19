@@ -142,7 +142,7 @@ export class SiteConfigService {
   public async fetchFromEdge(): Promise<void> {
     try {
       if (typeof window !== 'undefined' && typeof fetch !== 'undefined') {
-        const resp = await fetch('/api/config', { method: 'GET', cache: 'default' });
+        const resp = await fetch(`/api/config?_t=${Date.now()}`, { method: 'GET', cache: 'no-store' });
         if (resp.ok) {
           const remoteConfig: SiteConfig = await resp.json();
           if (remoteConfig && remoteConfig.unidades) {
