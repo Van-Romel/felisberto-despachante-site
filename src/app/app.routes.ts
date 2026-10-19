@@ -8,7 +8,6 @@ export const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'arquivos', component: ArquivosComponent },
   { path: 'parceiros', component: ParceirosComponent },
-  { path: 'admin', loadComponent: () => import('./admin/admin.component').then(m => m.AdminComponent) },
   { path: 'unidades/:cidade', component: UnidadeComponent },
   { path: 'unidades', redirectTo: 'unidades/barreiras', pathMatch: 'full' },
   { path: '', redirectTo: 'home', pathMatch: 'full' },

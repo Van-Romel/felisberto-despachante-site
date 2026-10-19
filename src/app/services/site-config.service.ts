@@ -128,10 +128,40 @@ export class SiteConfigService {
   private configSubject = new BehaviorSubject<SiteConfig>(this.loadConfig());
   public config$: Observable<SiteConfig> = this.configSubject.asObservable();
 
-  constructor() {}
+  constructor() {
+    this.fetchFromEdge();
+  }
 
   public get config(): SiteConfig {
     return this.configSubject.value;
+  }
+
+  /**
+   * Sincroniza as configurações globais com o Edge da Cloudflare (/api/config)
+   */
+  public async fetchFromEdge(): Promise<void> {
+    try {
+      if (typeof window !== 'undefined' && typeof fetch !== 'undefined') {
+        const resp = await fetch('/api/config', { method: 'GET', cache: 'default' });
+        if (resp.ok) {
+          const remoteConfig: SiteConfig = await resp.json();
+          if (remoteConfig && remoteConfig.unidades) {
+            this.configSubject.next({
+              unidades: { ...DEFAULT_CONFIG.unidades, ...(remoteConfig.unidades || {}) },
+              feriados: Array.isArray(remoteConfig.feriados) ? remoteConfig.feriados : DEFAULT_CONFIG.feriados,
+              temaSazonal: { ...DEFAULT_CONFIG.temaSazonal, ...(remoteConfig.temaSazonal || {}) }
+            });
+            // Atualiza cache local
+            if (window.localStorage) {
+              localStorage.setItem(STORAGE_KEY, JSON.stringify(remoteConfig));
+            }
+          }
+        }
+      }
+    } catch (e) {
+      // Falha silenciosa em caso de offline/rede: mantém o cache local ou DEFAULT_CONFIG
+      console.debug('Usando configuração local/fallback (Edge offline ou indisponível):', e);
+    }
   }
 
   private loadConfig(): SiteConfig {

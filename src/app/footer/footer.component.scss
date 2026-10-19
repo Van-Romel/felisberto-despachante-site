@@ -234,19 +234,6 @@
     flex-direction: column;
     text-align: center;
   }
-
-  .footer-admin-link {
-    display: inline-block;
-    margin-left: 10px;
-    color: #64748b;
-    font-size: 0.78rem;
-    text-decoration: none;
-    transition: color 0.2s;
-
-    &:hover {
-      color: #cbd5e1;
-      text-decoration: underline;
-    }
-  }
 }
+
 
