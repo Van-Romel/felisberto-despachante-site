@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "postbuild": "node -e \"const fs=require('fs'); if(fs.existsSync('functions')) fs.cpSync('functions', 'dist/felisberto-despachante/functions', {recursive:true});\"",
     "watch": "ng build --watch --configuration development"
   },
   "private": true,
